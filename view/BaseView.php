@@ -11,6 +11,14 @@ abstract class BaseView {
 	protected $footerColumn3 = true;
 	protected $footerColumn4 = true;
 
+	public function header(){
+		
+	}
+	
+	public function menu(){
+		
+	}
+	
 	public abstract function body();
 	
 	public function promoted(){
