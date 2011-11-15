@@ -1,8 +1,6 @@
 <?php
 @define('ROOT','../');
 
-require_once ROOT.'site/config.php';
-
 abstract class BaseController {
 	private $db = null;
 

@@ -3,7 +3,7 @@
  * sqlite
  * mysql
  */
-$config['db']['host'] = 'sqlite';
+$config['db']['type'] = 'sqlite';
 
 $config['db']['host'] = '';
 $config['db']['port'] = '';

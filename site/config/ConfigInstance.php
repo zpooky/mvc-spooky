@@ -1,8 +1,11 @@
 <?php
+@define('ROOT','../../');
+
+require_once ROOT.'site/config.php';
+
 class ConfigInstance {
 	private $configInstance = null;
 	private function __construct(){
-		read();
 	}
 	public static function getInstance(){
 		if($this->configInstance == null){
@@ -10,8 +13,11 @@ class ConfigInstance {
 		}
 		return $this->configInstance;
 	}
-	
-	private function read(){
-		
+	private function getDatabase(){
+		if($config['db']['type'] == 'sqlite'){
+			
+		} else {
+			
+		}
 	}
 }
