@@ -1,7 +1,7 @@
 <?php
 abstract class BaseModel {
 	private $id;
-	public getId(){
+	public function getId(){
 		return $id;
 	}
 }
