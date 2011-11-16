@@ -4,20 +4,23 @@
 require_once ROOT.'site/config.php';
 
 class ConfigInstance {
-	private $configInstance = null;
+	private static $configInstance = null;
 	private function __construct(){
 	}
 	public static function getInstance(){
-		if($this->configInstance == null){
-			$this->configInstance = new ConfigInstance();
+		if(self::configInstance == null){
+			self::configInstance = new ConfigInstance();
 		}
-		return $this->configInstance;
+		return self::configInstance;
 	}
-	private function getDatabase(){
+	public function getDatabase(){
 		if($config['db']['type'] == 'sqlite'){
-			
+			require_once ROOT.'sql/mysql/SqliteMVCDatabase.php';
+			return new SqliteMVCDatabase();
 		} else {
-			
+			require_once ROOT.'sql/mysql/MysqlMVCDatabase.php';
+			return new MysqlMVCDatabase();
 		}
 	}
 }
+?>

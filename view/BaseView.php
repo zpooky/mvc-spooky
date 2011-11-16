@@ -1,15 +1,5 @@
 <?php
-abstract class BaseView {
-	protected $promoted = true;
-	protected $sidebarLeft = true;
-	protected $sidebarRight = true;
-	protected $bottomLeft = true;
-	protected $bottomMiddle = true;
-	protected $bottomRight = true;
-	protected $footerColumn1 = true;
-	protected $footerColumn2 = true;
-	protected $footerColumn3 = true;
-	protected $footerColumn4 = true;
+abstract class BaseView extends ViewAssembler {
 
 	public function header(){
 		
@@ -19,6 +9,7 @@ abstract class BaseView {
 		
 	}
 	
+	public abstract function getTitle();
 	public abstract function body();
 	
 	public function promoted(){
