@@ -1,18 +1,24 @@
 <?php
+@define('ROOT','../');
+
+require_once(ROOT.'site/config/ConfigInstance.php');
+
 abstract class ViewAssembler {
 	
-	protected $promoted = true;
-	protected $sidebarLeft = true;
-	protected $sidebarRight = true;
-	protected $bottomLeft = true;
-	protected $bottomMiddle = true;
-	protected $bottomRight = true;
-	protected $footerColumn1 = true;
-	protected $footerColumn2 = true;
-	protected $footerColumn3 = true;
-	protected $footerColumn4 = true;
+	public $promoted = true;
+	public $sidebarLeft = true;
+	public $sidebarRight = true;
+	public $bottomLeft = true;
+	public $bottomMiddle = true;
+	public $bottomRight = true;
+	public $footerColumn1 = true;
+	public $footerColumn2 = true;
+	public $footerColumn3 = true;
+	public $footerColumn4 = true;
 	
 	public function assemble(){
-
+		$config = new ConfigInstance();
+		$config->setView($this);
+		echo $config->getTheme()->assemble();
 	}
 }

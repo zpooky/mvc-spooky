@@ -1,13 +1,9 @@
 <?php
 abstract class BaseView extends ViewAssembler {
 
-	public function header(){
-		
-	}
-	
-	public function menu(){
-		
-	}
+	public abstract function header();
+	//Array of menu items
+	public abstract function menu();
 	
 	public abstract function getTitle();
 	public abstract function body();
@@ -52,7 +48,7 @@ abstract class BaseView extends ViewAssembler {
 		$this->footerColumn4 = false;
 	}
 	
-	public abstract function bottom();
+	public abstract function footer();
 }
 
 ?>
