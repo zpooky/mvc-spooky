@@ -1,17 +1,18 @@
 <?php
 @define('ROOT','../../');
 
-require_once ROOT.'site/config.php';
+require_once ROOT.'site/config/config.php';
 
 class ConfigInstance {
 	private static $configInstance = null;
-	public function __construct(){
+	private function __construct(){
 	}
 	public static function getInstance(){
-		if(self::configInstance == null){
-			self::configInstance = new ConfigInstance();
+		if(self::$configInstance == null){
+			$className = __CLASS__;
+            self::$configInstance = new $className;
 		}
-		return self::configInstance;
+		return self::$configInstance;
 	}
 	public function getDatabase(){
 		if(!isset($config['db']['type']) || $config['db']['type'] == null || $config['db']['type'] == 'sqlite'){

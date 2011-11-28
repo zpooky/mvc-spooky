@@ -1,7 +1,7 @@
 <?php
 @define('ROOT','../../');
 
-require_once(ROOT.'theme/default/ThemeInterface.php');
+require_once(ROOT.'theme/ThemeInterface.php');
 
 class Theme implements ThemeInterface {
 	private $view;
@@ -9,7 +9,7 @@ class Theme implements ThemeInterface {
 		$this->view = $view;
 	}
 
-	public function assembly(){
+	public function assemble(){
 		return <<<EOD
 <!DOCTYPE html>
 <html lang="en" class="default">
@@ -18,9 +18,9 @@ class Theme implements ThemeInterface {
 		<meta charset="utf-8">
 		<title>{$this->view->getTitle()}</title>
 		<!-- CSS -->
-		<link rel="stylesheet" href="../blueprint/screen.css" type="text/css" media="screen, projection">
-		<link rel="stylesheet" href="../blueprint/print.css" type="text/css" media="print">
-		<link rel="stylesheet" href="css/style.css" type="text/css">
+		<link rel="stylesheet" href="theme/blueprint/screen.css" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="theme/blueprint/print.css" type="text/css" media="print">
+		<link rel="stylesheet" href="theme/default/css/style.css" type="text/css">
 		<!--[if lt IE 8]><link rel="stylesheet" href="../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 	</head>
 	<body>
@@ -53,10 +53,10 @@ class Theme implements ThemeInterface {
 			<!-- FOOTER -->
 			<div class="prepend-top">
 				<footer class="container">
-				{$this->view->getFooterColumn1()}
-				{$this->view->getFooterColumn2()}
-				{$this->view->getFooterColumn3()}
-				{$this->view->getFooterColumn4()}
+				{$this->getFooterColumn1()}
+				{$this->getFooterColumn2()}
+				{$this->getFooterColumn3()}
+				{$this->getFooterColumn4()}
 				</footer>
 			</div>
 			<!-- BOTTOM -->

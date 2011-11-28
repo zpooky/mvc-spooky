@@ -1,4 +1,6 @@
 <?php
+@define('ROOT','../');
+require_once ROOT.'view/ViewAssembler.php';
 abstract class BaseView extends ViewAssembler {
 
 	public abstract function header();

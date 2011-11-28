@@ -17,8 +17,9 @@ abstract class ViewAssembler {
 	public $footerColumn4 = true;
 	
 	public function assemble(){
-		$config = new ConfigInstance();
-		$config->setView($this);
-		echo $config->getTheme()->assemble();
+		$config = ConfigInstance::getInstance();
+		$theme = $config->getTheme();
+		$theme->setView($this);
+		echo $theme->assemble();
 	}
 }

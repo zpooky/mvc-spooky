@@ -1,14 +1,13 @@
 <?php
 interface ThemeInterface {
 	public function setView($view);
-	public function assembly();
+	public function assemble();
 	/**
 	 * Assembly html
 	 */
 	public function getMenu();
 	public function getPromoted();
 	public function getSidebarLeft();
-	public function getBody();
 	public function getSidebarRight();
 	public function getBottomLeft();
 	public function getBottomMiddle();
