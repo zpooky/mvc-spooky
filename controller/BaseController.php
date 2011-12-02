@@ -1,6 +1,8 @@
 <?php
 @define('ROOT','../');
 
+require_once ROOT.'site/config/ConfigInstance.php';
+
 abstract class BaseController {
 	private $db = null;
 
@@ -24,6 +26,9 @@ abstract class BaseController {
 	}
 
 	protected abstract function loadDatabase();
+	//required loggin
+	//requreid admin
+	//...
 
 	protected function getDatabase(){
 		if(!loadDatabase()){
@@ -34,7 +39,13 @@ abstract class BaseController {
 
 	private function loadDrivers(){
 		if(loadDatabase()){
-			$this->db = new Database();
+			$config = ConfigInstance::getInstance();
+			$this->db = $config->getDatabace();
 		}
+	}
+	
+	private function loadView($viewClass){
+		require_once ROOT.'view/'.$viewClass.'.php';
+		
 	}
 }

@@ -4,8 +4,10 @@
 require_once ROOT.'site/config/config.php';
 
 class ConfigInstance {
+	public $config;
 	private static $configInstance = null;
 	private function __construct(){
+		
 	}
 	public static function getInstance(){
 		if(self::$configInstance == null){
@@ -15,7 +17,7 @@ class ConfigInstance {
 		return self::$configInstance;
 	}
 	public function getDatabase(){
-		if(!isset($config['db']['type']) || $config['db']['type'] == null || $config['db']['type'] == 'sqlite'){
+		if(!isset($this->config['db']['type']) || $this->config['db']['type'] == null || $this->config['db']['type'] == 'sqlite'){
 			require_once ROOT.'sql/mysql/SqliteMVCDatabase.php';
 			return new SqliteMVCDatabase();
 		} else {
@@ -24,11 +26,42 @@ class ConfigInstance {
 		}
 	}
 	public function getTheme(){
-		if(!isset($config['theme']['theme']) || $config['theme']['theme'] == null){
-			$config['theme']['theme'] = 'default';
+		if(!isset($this->config['theme']['theme']) || $this->config['theme']['theme'] == null){
+			throw new Exception('Theme is not set');
 		}
-		require_once ROOT.'theme/'.$config['theme']['theme'].'/Theme.php';
+		require_once ROOT.'theme/'.$this->config['theme']['theme'].'/Theme.php';
 		return new Theme();
+	}
+	
+	public function getDatabaseHost(){
+		if(!isset($this->config['db']['host']) || $this->config['db']['host'] == null){
+			throw new Exception('Database host is not set');
+		}
+		return $this->config['db']['host'];
+	}
+	public function getDatabasePort(){
+		if(!isset($this->config['db']['port']) || $this->config['db']['port'] == null){
+			throw new Exception('Database port is not set');
+		}
+		return $this->config['db']['port'];
+	}
+	public function getDatabaseName(){
+		if(!isset($this->config['db']['database']) || $this->config['db']['database'] == null){
+			throw new Exception('Database name is not set');
+		}
+		return $this->config['db']['database'];
+	}
+	public function getDatabaseUsername(){
+		if(!isset($this->config['db']['usr']) || $this->config['db']['usr'] == null){
+			throw new Exception('Database username is not set');
+		}
+		return $this->config['db']['usr'];
+	}
+	public function getDatabasePassword(){
+		if(!isset($this->config['db']['root']) || $this->config['db']['root'] == null){
+			throw new Exception('Database password is not set');
+		}
+		return $this->config['db']['root'];
 	}
 }
 ?>
