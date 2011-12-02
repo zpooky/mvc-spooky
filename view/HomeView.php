@@ -1,6 +1,11 @@
 <?php
 require_once 'BaseView.php';
 class HomeView extends BaseView {
+	private $poster;
+	public function setPoster($poster){
+		$this->poster = $poster;
+	}
+	
 	public function header(){
 		return <<<EOD
 	Header	
@@ -16,7 +21,7 @@ EOD;
 	}
 	public function body(){
 		return <<<EOD
-			body	
+			{$this->poster}	
 EOD;
 	}
 	public function footer(){

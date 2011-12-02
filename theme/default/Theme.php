@@ -93,9 +93,7 @@ EOD;
 	public function getHead(){
 		$returnHeadHtml = "";
 		foreach($this->view->getModule() as $module){
-			foreach($module->getCSS() as $head){
-				$returnHeadHtml .= $head;
-			}
+			$returnHeadHtml .= $module->getHead();
 		}
 		return $returnHeadHtml;
 	}

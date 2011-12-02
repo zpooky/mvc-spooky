@@ -12,6 +12,8 @@ class HomeController extends BaseController {
 	protected function index(){
 		$blogModule = $this->getModule('Blog');
 		$this->getView()->addModule($blogModule);
+		$this->getView()->setPoster($blogModule->getBlogPoster());
+		
 	}
 	
 }
