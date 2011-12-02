@@ -5,9 +5,9 @@ require_once ROOT.'site/config/ConfigInstance.php';
 
 abstract class BaseController {
 	private $db = null;
-
-	protected function __construct(){
-		loadDrivers();
+	private $view;
+	public function __construct(){
+		$this->loadDrivers();
 	}
 
 	function __autoload($className){
@@ -26,10 +26,14 @@ abstract class BaseController {
 	}
 
 	protected abstract function loadDatabase();
+	protected abstract function loadViewClass();
 	//required loggin
 	//requreid admin
 	//...
-
+	protected abstract function index();
+	protected function getView(){
+		return $this->view;
+	}
 	protected function getDatabase(){
 		if(!loadDatabase()){
 			throw 'Database driver is not loaded';
@@ -38,14 +42,17 @@ abstract class BaseController {
 	}
 
 	private function loadDrivers(){
-		if(loadDatabase()){
+		if($this->loadDatabase()){
 			$config = ConfigInstance::getInstance();
 			$this->db = $config->getDatabace();
 		}
+		//Load view
+		require_once ROOT.'view/'.$this->loadViewClass().'.php';
+		$className = $this->loadViewClass();
+		$this->view = new $className;
 	}
-	
-	private function loadView($viewClass){
-		require_once ROOT.'view/'.$viewClass.'.php';
-		
+	public function controll(){
+		$this->index();
+		$this->view->assemble();
 	}
 }

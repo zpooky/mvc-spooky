@@ -17,11 +17,15 @@ class Theme implements ThemeInterface {
 		<!-- Meta tags -->
 		<meta charset="utf-8">
 		<title>{$this->view->getTitle()}</title>
+		<!-- JavaScript -->
+		{$this->getJs()}
 		<!-- CSS -->
+		{$this->getCSS()}
 		<link rel="stylesheet" href="theme/blueprint/screen.css" type="text/css" media="screen, projection">
 		<link rel="stylesheet" href="theme/blueprint/print.css" type="text/css" media="print">
 		<link rel="stylesheet" href="theme/default/css/style.css" type="text/css">
 		<!--[if lt IE 8]><link rel="stylesheet" href="../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+		{$this->getHead()}
 	</head>
 	<body>
 		<div class="container">
@@ -67,6 +71,33 @@ class Theme implements ThemeInterface {
 	</body>
 </html>
 EOD;
+	}
+	public function getJs(){
+		$returnJsHtml = "";
+		foreach($this->view->getModule() as $module){
+			foreach($module->getJavascript() as $js){
+				$returnJsHtml .= $js;
+			}
+		}
+		return $returnJsHtml;
+	}
+	public function getCSS(){
+		$returnCSSHtml = "";
+		foreach($this->view->getModule() as $module){
+			foreach($module->getCSS() as $css){
+				$returnCSSHtml .= $css;
+			}
+		}
+		return $returnCSSHtml;
+	}
+	public function getHead(){
+		$returnHeadHtml = "";
+		foreach($this->view->getModule() as $module){
+			foreach($module->getCSS() as $head){
+				$returnHeadHtml .= $head;
+			}
+		}
+		return $returnHeadHtml;
 	}
 	public function getMenu(){
 

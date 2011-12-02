@@ -10,6 +10,11 @@ switch($_GET['p']){
 		$view = new HomeView();
 		$view->assemble();
 	break;
+	case 'homex':
+		require_once ROOT.'controller/HomeController.php';
+		$controller = new HomeController();
+		$controller->controll();
+	break;
 	default:
 		require_once ROOT.'view/HomeView.php';
 		$view = new HomeView();

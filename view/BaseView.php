@@ -2,7 +2,13 @@
 @define('ROOT','../');
 require_once ROOT.'view/ViewAssembler.php';
 abstract class BaseView extends ViewAssembler {
-	public function addModule($module);
+	protected $module = array();
+	public function addModule($module){
+		$this->module[] = $module;
+	}
+	public function getModule(){
+		return $this->module;
+	}
 
 	public abstract function header();
 	//Array of menu items

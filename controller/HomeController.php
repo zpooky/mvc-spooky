@@ -7,6 +7,12 @@ class HomeController extends BaseController {
 	protected function loadDatabase(){
 		return false;
 	}
+	protected function loadViewClass(){
+		return 'HomeView';
+	}
+	protected function index(){
+		//$this->getView()->addModule();
+	}
 	
 }
 ?>
