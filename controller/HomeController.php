@@ -1,6 +1,5 @@
 <?php
 @define('ROOT','../');
-
 require_once(ROOT.'controller/BaseController.php');
 
 class HomeController extends BaseController {
@@ -11,7 +10,8 @@ class HomeController extends BaseController {
 		return 'HomeView';
 	}
 	protected function index(){
-		//$this->getView()->addModule();
+		$blogModule = $this->getModule('Blog');
+		$this->getView()->addModule($blogModule);
 	}
 	
 }

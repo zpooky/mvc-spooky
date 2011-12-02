@@ -40,6 +40,10 @@ abstract class BaseController {
 		}
 		return $this->db;
 	}
+	protected function getModule($module){
+		require_once ROOT.'module/'.$module.'/'.$module.'.php';
+		return new $module;
+	}
 
 	private function loadDrivers(){
 		if($this->loadDatabase()){
