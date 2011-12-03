@@ -22,7 +22,7 @@ abstract class BaseView extends ViewAssembler {
 	}
 	
 	public function sidebarLeft(){
-		$this->sidebarLeft = false;
+		$this->mSidebarLeft = false;
 	}
 	
 	public function sidebarRight(){

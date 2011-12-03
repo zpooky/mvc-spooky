@@ -4,6 +4,10 @@
 require_once(ROOT.'theme/ThemeInterface.php');
 
 class Theme implements ThemeInterface {
+	//width calculations
+	private static $MAX_WIDTH = 24;
+	private static $MIN_BODY_WIDTH = 16;
+	private $contentWidth = 0;
 	private $view;
 	public function setView($view){
 		$this->view = $view;
@@ -40,31 +44,11 @@ class Theme implements ThemeInterface {
 				</nav>
 			</div>
 			{$this->getPromoted()}
-			{$this->getSidebarLeft()}
-			<!-- BODY -->
-			<div id="ms-body" class="span-16">
-				{$this->view->body()}
-			</div>
-			{$this->getSidebarRight()}
+			{$this->getContentContainer()}
+			{$this->getBottomContainer()}
+			{$this->getFooterContainer()}
 			<!-- BOTTOM -->
-			<div class="prepend-top append-bottom">
-				<div class="container">
-				{$this->getBottomLeft()}
-				{$this->getBottomMiddle()}
-				{$this->getBottomRight()}
-				</div>
-			</div>
-			<!-- FOOTER -->
-			<div class="prepend-top">
-				<footer class="container">
-				{$this->getFooterColumn1()}
-				{$this->getFooterColumn2()}
-				{$this->getFooterColumn3()}
-				{$this->getFooterColumn4()}
-				</footer>
-			</div>
-			<!-- BOTTOM -->
-			<div id="ms-footer">
+			<div id="ms-footer" class="append-bottom">
 				{$this->view->footer()}
 			</div>
 		</div>
@@ -101,110 +85,181 @@ EOD;
 
 	}
 	public function getPromoted(){
+		$html = $this->view->promoted();
 		if($this->view->promoted){
 			return <<<EOD
 			<!-- PROMOTED -->
 			<div id="ms-promoted" class="span-24 last">
-			{$this->view->promoted()}
+			{$html}
 			</div>	
 EOD;
 		}
 		return '';
 	}
+	
+	public function getContentContainer(){
+		$sidebarLeftHTML = $this->getSidebarLeft();
+		$sidebarRightHTML = $this->getSidebarRight();
+		$bodyHTML = $this->getBody();
+		return <<<EOD
+			{$sidebarLeftHTML}
+			{$bodyHTML}
+			{$sidebarRightHTML}	
+EOD;
+	}
 	public function getSidebarLeft(){
-		if($this->view->sidebarLeft){
+		$html = $this->view->sidebarLeft();
+		if($this->view->mSidebarLeft){
+			$this->contentWidth += 4;
 			return <<<EOD
 			<!-- SIDEBAR LEFT -->
 			<div id="ms-sidebar-left" class="span-4">
-				{$this->view->sidebarLeft()}
+			{$html}
 			</div>	
 EOD;
 		}
 		return '';
 	}
+	public function getBody(){
+		$html = $this->view->body();
+		$this->contentWidth += 16;
+		return <<<EOD
+		<div id="ms-body" class="span-{$this->getBodyWidth()}">
+			{$this->view->body()}
+		</div>
+EOD;
+	}
+	
+	private function getBodyWidth(){
+		return self::$MIN_BODY_WIDTH+(self::$MAX_WIDTH-$this->contentWidth);
+	}
+	
 	public function getSidebarRight(){
-		if($this->view->sidebarLeft){
+		$html = $this->view->sidebarRight();
+		if($this->view->sidebarRight){
+			$this->contentWidth += 4;
 			return <<<EOD
 			<!-- SIDEBAR RIGHT -->
 			<div id="ms-sidebar-right" class="span-4 last">
-				{$this->view->sidebarRight()}
+				{$html}
 			</div>
 EOD;
 		}
 		return '';
 	}
+	
+	public function getBottomContainer(){
+		$returnHtml = <<<EOD
+			<!-- BOTTOM CONTAINER -->
+			<div class="prepend-top append-bottom">
+				<div class="container">
+				{$this->getBottomLeft()}
+				{$this->getBottomMiddle()}
+				{$this->getBottomRight()}
+				</div>
+			</div>	
+EOD;
+		if($this->view->bottomLeft || $this->view->bottomMiddle || $this->view->bottomRight){
+			return $returnHtml;
+		}
+		return '';
+	}
 	public function getBottomLeft(){
+		$html = $this->view->bottomLeft();
 		if($this->view->bottomLeft){
 			return <<<EOD
 					<!-- LEFT BOTTOM -->
 					<div id="ms-left-bottom" class="span-7">
-						{$this->view->bottomLeft()}
+						{$html}
 					</div>
 EOD;
 		}
 		return '';
 	}
 	public function getBottomMiddle(){
+		$html = $this->view->bottomMiddle();
 		if($this->view->bottomMiddle){
 			return <<<EOD
 					<!-- MIDDLE BOTTOM -->
 					<div id="ms-middle-bottom" class="span-8">
-						{$this->view->bottomMiddle()}
+						{$html}
 					</div>
 EOD;
 		}
 		return '';
 	}
 	public function getBottomRight(){
+		$html = $this->view->bottomRight();
 		if($this->view->bottomRight){
 			return <<<EOD
 					<!-- RIGHT BOTTOM -->
 					<div id="ms-right-bottom" class="span-8 last">
-						{$this->view->bottomRight()}
+						{$html}
 					</div>
 EOD;
 		}
 		return '';
 	}
+	public function getFooterContainer(){
+		$returnHtml = <<<EOD
+			<!-- FOOTER CONTAINER-->
+			<div class="prepend-top">
+				<footer class="container">
+				{$this->getFooterColumn1()}
+				{$this->getFooterColumn2()}
+				{$this->getFooterColumn3()}
+				{$this->getFooterColumn4()}
+				</footer>
+			</div>
+EOD;
+		if($this->view->footerColumn1 || $this->view->footerColumn2 || $this->view->footerColumn3 || $this->view->footerColumn4){
+			return $returnHtml;
+		}
+		return '';
+	}
 	public function getFooterColumn1(){
+		$html = $this->view->footerColumn1();
 		if($this->view->footerColumn1){
 			return <<<EOD
 					<!-- FOOTER COLUMN 1 -->
 					<div id="ms-footer-column1" class="span-6">
-						{$this->view->footerColumn1()}
+						{$html}
 					</div>
 EOD;
 		}
 		return '';
 	}
 	public function getFooterColumn2(){
+		$html = $this->view->footerColumn2();
 		if($this->view->footerColumn2){
 			return <<<EOD
 					<!-- FOOTER COLUMN 2 -->
 					<div id="ms-footer-column2" class="span-6">
-						{$this->view->footerColumn2()}
+						{$html}
 					</div>
 EOD;
 		}
 		return '';
 	}
 	public function getFooterColumn3(){
+		$html = $this->view->footerColumn3();
 		if($this->view->footerColumn3){
 			return <<<EOD
 					<!-- FOOTER COLUMN 3 -->
 					<div id="ms-footer-column3" class="span-6">
-						{$this->view->footerColumn3()}
+						{$html}
 					</div>
 EOD;
 		}
 		return '';
 	}
 	public function getFooterColumn4(){
+		$html = $this->view->footerColumn4();
 		if($this->view->footerColumn4){
 			return <<<EOD
 					<!-- FOOTER COLUMN 4 -->
 					<div id="ms-footer-column4" class="span-6 last">
-						{$this->view->footerColumn4()}
+						{$html}
 					</div>
 EOD;
 		}

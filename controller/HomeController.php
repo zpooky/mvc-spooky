@@ -13,8 +13,6 @@ class HomeController extends BaseController {
 		$blogModule = $this->getModule('Blog');
 		$this->getView()->addModule($blogModule);
 		$this->getView()->setPoster($blogModule->getBlogPoster());
-		
 	}
-	
 }
 ?>

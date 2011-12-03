@@ -17,7 +17,7 @@ EOD;
 EOD;
 	}
 	public function getTitle(){
-		return "Title";
+		return 'Title';
 	}
 	public function body(){
 		return <<<EOD
