@@ -19,6 +19,11 @@ EOD;
 	public function getTitle(){
 		return 'Title';
 	}
+	public function sidebarLeft(){
+		return <<<EOD
+		left
+EOD;
+	}
 	public function body(){
 		return <<<EOD
 			{$this->poster}	

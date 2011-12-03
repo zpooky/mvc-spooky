@@ -5,8 +5,9 @@ require_once(ROOT.'theme/ThemeInterface.php');
 
 class Theme implements ThemeInterface {
 	//width calculations
-	private static $MAX_WIDTH = 24;
+	private static $MAX_WIDTH = 23;
 	private static $MIN_BODY_WIDTH = 16;
+	private static $MIN_SIDEBAR_WIDTH = 4;
 	private $contentWidth = 0;
 	private $view;
 	public function setView($view){
@@ -110,7 +111,7 @@ EOD;
 	public function getSidebarLeft(){
 		$html = $this->view->sidebarLeft();
 		if($this->view->mSidebarLeft){
-			$this->contentWidth += 4;
+			$this->contentWidth += self::$MIN_SIDEBAR_WIDTH;
 			return <<<EOD
 			<!-- SIDEBAR LEFT -->
 			<div id="ms-sidebar-left" class="span-4">
@@ -122,7 +123,7 @@ EOD;
 	}
 	public function getBody(){
 		$html = $this->view->body();
-		$this->contentWidth += 16;
+		$this->contentWidth += self::$MIN_BODY_WIDTH;
 		return <<<EOD
 		<div id="ms-body" class="span-{$this->getBodyWidth()}">
 			{$this->view->body()}
@@ -137,7 +138,7 @@ EOD;
 	public function getSidebarRight(){
 		$html = $this->view->sidebarRight();
 		if($this->view->sidebarRight){
-			$this->contentWidth += 4;
+			$this->contentWidth += self::$MIN_SIDEBAR_WIDTH;
 			return <<<EOD
 			<!-- SIDEBAR RIGHT -->
 			<div id="ms-sidebar-right" class="span-4 last">
