@@ -5,20 +5,19 @@ require_once ROOT.'sql/DatabaseInterface.php';
 require_once ROOT.'site/config/ConfigInstance.php';
 
 class SqliteMVCDatabase implements DatabaseInterface {
-	private $sqlite;
+	private $sqlite = null;
 	private $query;
-    public 	$timer;
-    public 	$id;
-    public  $rows;
+	public 	$timer;
+	public 	$id;
+	public  $rows;
 	public function __construct(){
-		
+
 	}
 	function __destruct(){
 		$this->disconnect();
 	}
 	public function connect(){
-		
-		$this->sqlite = new SQLiteDatabase('filename');
+		$this->sqlite = new SQLiteDatabase('db/database.sqlite');
 	}
 	public function disconnect(){
 		$this->sqlite->close();

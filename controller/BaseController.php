@@ -35,20 +35,27 @@ abstract class BaseController {
 		return $this->view;
 	}
 	protected function getDatabase(){
-		if(!loadDatabase()){
-			throw 'Database driver is not loaded';
+		if(!$this->loadDatabase()){
+			throw new Exception('Database driver is not loaded');
 		}
+		$this->db->connect();
 		return $this->db;
 	}
-	protected function getModule($module){
-		require_once ROOT.'module/'.$module.'/'.$module.'.php';
-		return new $module;
+	protected function getModule($moduleClass){
+		require_once ROOT.'module/'.strtolower($moduleClass).'/'.$moduleClass.'.php';
+		return new $moduleClass;
 	}
-
+	protected function getModel($modelClass){
+		require_once ROOT.'model/'.$modelClass.'.php';
+		$model = new $modelClass;
+		$model->setDatabase($this->getDatabase());
+		return $model;
+	}
+	
 	private function loadDrivers(){
 		if($this->loadDatabase()){
 			$config = ConfigInstance::getInstance();
-			$this->db = $config->getDatabace();
+			$this->db = $config->getDatabase();
 		}
 		//Load view
 		require_once ROOT.'view/'.$this->loadViewClass().'.php';

@@ -18,7 +18,7 @@ class ConfigInstance {
 	}
 	public function getDatabase(){
 		if(!isset($this->config['db']['type']) || $this->config['db']['type'] == null || $this->config['db']['type'] == 'sqlite'){
-			require_once ROOT.'sql/mysql/SqliteMVCDatabase.php';
+			require_once ROOT.'sql/sqlite/SqliteMVCDatabase.php';
 			return new SqliteMVCDatabase();
 		} else {
 			require_once ROOT.'sql/mysql/MysqlMVCDatabase.php';

@@ -1,8 +1,11 @@
 <?php
 abstract class BaseModel {
-	private $id;
-	public function getId(){
-		return $id;
+	protected $db;
+	public function setDatabase($db){
+		$this->db = $db;
+	}
+	protected function getDatabase(){
+		return $this->db;
 	}
 }
 ?>

@@ -4,7 +4,7 @@ require_once(ROOT.'controller/BaseController.php');
 
 class HomeController extends BaseController {
 	protected function loadDatabase(){
-		return false;
+		return true;
 	}
 	protected function loadViewClass(){
 		return 'HomeView';
@@ -13,6 +13,7 @@ class HomeController extends BaseController {
 		$blogModule = $this->getModule('Blog');
 		$this->getView()->addModule($blogModule);
 		$this->getView()->setPoster($blogModule->getBlogPoster());
+		$homeModel = $this->getModel('HomeModel');
 	}
 }
 ?>
