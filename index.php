@@ -6,9 +6,9 @@ if(!isset($_GET['p'])){
 }
 switch($_GET['p']){
 	case 'home':
-		require_once ROOT.'view/HomeView.php';
-		$view = new HomeView();
-		$view->assemble();
+		require_once ROOT.'controller/HomeController.php';
+		$controller = new HomeController();
+		$controller->controll();
 	break;
 	case 'homex':
 		require_once ROOT.'controller/HomeController.php';
@@ -16,8 +16,8 @@ switch($_GET['p']){
 		$controller->controll();
 	break;
 	default:
-		require_once ROOT.'view/HomeView.php';
-		$view = new HomeView();
-		$view->assemble();
+		require_once ROOT.'controller/HomeController.php';
+		$controller = new HomeController();
+		$controller->controll();
 }
 ?>

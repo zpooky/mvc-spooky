@@ -5,7 +5,7 @@ require_once(ROOT.'theme/ThemeInterface.php');
 
 class Theme implements ThemeInterface {
 	//width calculations
-	private static $MAX_WIDTH = 23;
+	private static $MAX_WIDTH = 24;
 	private static $MIN_BODY_WIDTH = 16;
 	private static $MIN_SIDEBAR_WIDTH = 4;
 	private $contentWidth = 0;
@@ -125,7 +125,7 @@ EOD;
 		$html = $this->view->body();
 		$this->contentWidth += self::$MIN_BODY_WIDTH;
 		return <<<EOD
-		<div id="ms-body" class="span-{$this->getBodyWidth()}">
+		<div id="ms-body" class="span-{$this->getBodyWidth()} last"><!-- last is tmp fix -->
 			{$this->view->body()}
 		</div>
 EOD;

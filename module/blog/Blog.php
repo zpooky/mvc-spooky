@@ -18,8 +18,8 @@ EOD;
 	public function getBlogPoster(){
 		return <<<EOD
 <form method="post" action="">
-	<input type="text" name="blog_title" id="blog_title" />
-	<textarea name="blog_text id="blog_text"></textarea>
+	<input type="text" name="blog_title" id="blog_title" style="width: 100%;" />
+	<textarea name="blog_text id="blog_text" style="width: 100%;"></textarea>
 	<input type="submit" value="Submit" />
 </form>
 EOD;
