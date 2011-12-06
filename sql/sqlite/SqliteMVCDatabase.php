@@ -20,7 +20,7 @@ class SqliteMVCDatabase implements DatabaseInterface {
 		$this->sqlite = new SQLiteDatabase(ROOT.'sql/sqlite/db/database.sqlite');
 	}
 	public function disconnect(){
-		$this->sqlite->close();
+		//$this->sqlite->close();
 	}
 	public function query(){
 		$this->query = $query;
