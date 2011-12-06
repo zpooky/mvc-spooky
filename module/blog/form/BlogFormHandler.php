@@ -4,7 +4,7 @@ require_once ROOT.'form/BaseFormHandler.php';
 
 class BlogFormHandler extends BaseFormHandler {
 	public function validate(){
-		echo "here";
+		//header('Location: '.);
 	}
 }
 
