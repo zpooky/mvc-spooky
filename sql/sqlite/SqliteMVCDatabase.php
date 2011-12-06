@@ -17,7 +17,7 @@ class SqliteMVCDatabase implements DatabaseInterface {
 		$this->disconnect();
 	}
 	public function connect(){
-		$this->sqlite = new SQLiteDatabase('db/database.sqlite');
+		$this->sqlite = new SQLiteDatabase(ROOT.'sql/sqlite/db/database.sqlite');
 	}
 	public function disconnect(){
 		$this->sqlite->close();

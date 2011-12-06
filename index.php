@@ -4,6 +4,7 @@
 if(!isset($_GET['p'])){
 	$_GET['p'] = 'home';
 }
+
 switch($_GET['p']){
 	case 'home':
 		require_once ROOT.'controller/HomeController.php';
