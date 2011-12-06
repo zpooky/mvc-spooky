@@ -19,8 +19,8 @@ EOD;
 		$formValidatorURL = ROOT.'form/FormHandler.php?c=BlogFormHandler&f=validate&u='.urlencode('module/blog/form/');
 		return <<<EOD
 <form method="post" action="{$formValidatorURL}">
-	<input type="text" name="blog_title" id="blog_title" style="width: 100%;" />
-	<textarea name="blog_text id="blog_text" style="width: 100%;"></textarea>
+	<input type="text" name="blog_subject" id="blog_subject" style="width: 100%;" />
+	<textarea name="blog_post id="blog_post" style="width: 100%;"></textarea>
 	<input type="submit" value="Submit" />
 </form>
 EOD;
