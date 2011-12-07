@@ -5,6 +5,7 @@ $rootDir = ROOT.'module/';
 if ($handle = opendir($rootDir)) {
 	$db = ConfigInstance::getInstance()->getDatabase();
 	$db->connect();
+	
     while (false !== ($file = readdir($handle))) {
         if ($file != "." && $file != "..") {
             if(is_dir($rootDir.$file)){

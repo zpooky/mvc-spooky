@@ -51,13 +51,22 @@ abstract class BaseController {
 		$model->setDatabase($this->getDatabase());
 		return $model;
 	}
-	
+	protected function getGET(){
+		return $_GET;
+	}
+	protected function get404(){
+		require_once ROOT.'view/'.$this->loadViewClass().'.php';
+		$className = '404View';
+		$this->view = new $className;
+	}
 	private function loadDrivers(){
 		if($this->loadDatabase()){
 			$config = ConfigInstance::getInstance();
 			$this->db = $config->getDatabase();
 		}
-		//Load view
+		$this->loadView();
+	}
+	private function loadView(){
 		require_once ROOT.'view/'.$this->loadViewClass().'.php';
 		$className = $this->loadViewClass();
 		$this->view = new $className;
