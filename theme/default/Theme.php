@@ -31,7 +31,6 @@ class Theme implements ThemeInterface {
 		<link rel="stylesheet" href="theme/default/css/style.css" type="text/css">
 		<!--[if lt IE 8]><link rel="stylesheet" href="../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 		{$this->getHead()}
-		{$this->view->head()}
 	</head>
 	<body>
 		<div class="container">
@@ -65,6 +64,9 @@ EOD;
 				$returnJsHtml .= $js;
 			}
 		}
+		foreach($this->view->getJavascript() as $js){
+			$returnJsHtml .= $js;
+		}
 		return $returnJsHtml;
 	}
 	public function getCSS(){
@@ -81,6 +83,7 @@ EOD;
 		foreach($this->view->getModule() as $module){
 			$returnHeadHtml .= $module->getHead();
 		}
+		$returnHeadHtml .= $this->view->head();
 		return $returnHeadHtml;
 	}
 	public function getMenu(){

@@ -9,7 +9,9 @@ abstract class BaseView extends ViewAssembler {
 	public function getModule(){
 		return $this->module;
 	}
-
+	public function getJavaScript(){
+		return array();
+	}
 	public function head(){
 		
 	}
