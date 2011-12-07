@@ -1,10 +1,5 @@
-<?php
+<?php session_start();
 @define('ROOT','../');
-
-/**
- * this should read all form handler classes and get the url from the class for witch the page should be redirected to
- */
-
 /**
  * c: class
  * f: function

@@ -10,6 +10,10 @@ abstract class BaseView extends ViewAssembler {
 		return $this->module;
 	}
 
+	public function head(){
+		
+	}
+	
 	public abstract function header();
 	//Array of menu items
 	public abstract function menu();

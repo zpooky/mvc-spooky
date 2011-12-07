@@ -31,6 +31,7 @@ class Theme implements ThemeInterface {
 		<link rel="stylesheet" href="theme/default/css/style.css" type="text/css">
 		<!--[if lt IE 8]><link rel="stylesheet" href="../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 		{$this->getHead()}
+		{$this->view->head()}
 	</head>
 	<body>
 		<div class="container">
