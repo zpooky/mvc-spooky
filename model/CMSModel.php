@@ -15,7 +15,7 @@ class CMSModel extends BaseModel {
 		if(count($row) == 0){
 			throw new Exception('Page not found.',1);
 		}
-		return $row;
+		return $row[0];
 	}
 }
 

@@ -54,10 +54,11 @@ abstract class BaseController {
 	protected function getGET(){
 		return $_GET;
 	}
-	protected function get404(){
-		require_once ROOT.'view/'.$this->loadViewClass().'.php';
-		$className = '404View';
+	protected function get404($message = ''){
+		$className = 'HTTP404View';
+		require_once ROOT.'view/'.$className.'.php';
 		$this->view = new $className;
+		$this->view->setMessage($message);
 	}
 	private function loadDrivers(){
 		if($this->loadDatabase()){

@@ -1,6 +1,10 @@
 <?php
 require_once 'BaseView.php';
-class CMSView extends BaseView {
+class HTTP404View extends BaseView {
+	private $message;
+	public function setMessage($message){
+		$this->message = $message;
+	}
 	public function header(){
 		return <<<EOD
 	Header	
@@ -21,7 +25,10 @@ EOD;
 	}
 	public function body(){
 		return <<<EOD
-		404
+		<h1>404</h1>
+		<p>
+		{$this->message}
+		</p>
 EOD;
 	}
 	public function footer(){

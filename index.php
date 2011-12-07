@@ -11,9 +11,9 @@ switch($_GET['p']){
 		$controller = new HomeController();
 		$controller->controll();
 	break;
-	case 'homex':
-		require_once ROOT.'controller/HomeController.php';
-		$controller = new HomeController();
+	case 'cms':
+		require_once ROOT.'controller/CMSController.php';
+		$controller = new CMSController();
 		$controller->controll();
 	break;
 	default:

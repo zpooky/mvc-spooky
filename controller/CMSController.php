@@ -17,15 +17,15 @@ class CMSController extends BaseController {
 			$view = $this->getView();
 			$view->setPage($data);
 		} catch(Exception $e){
-			$this->get404();
+			$this->get404($e->getMessage());
 		}
 	}
 	public function getPage(){
 		$get = $this->getGET();
-		if(!isset($get['p']) || $get['p'] == null || empty($get['p'])){
-			throw new Exception();
+		if(!isset($get['i']) || $get['i'] == null || empty($get['i'])){
+			throw new Exception('Page not defined.',2);
 		}
-		return (int)$get['p'];
+		return (int)$get['i'];
 	}
 }
 ?>

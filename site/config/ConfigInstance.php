@@ -62,7 +62,7 @@ class ConfigInstance {
 	}
 	public function getDatabasePassword(){
 		if(!isset($this->config['db']['root']) || $this->config['db']['root'] == null){
-			throw new Exception('Database password is not set');
+			$this->config['db']['root'] = '';
 		}
 		return $this->config['db']['root'];
 	}
