@@ -24,10 +24,11 @@ EOD;
 EOD;
 	}
 	public function body(){
+		$content = nl2br($this->page['c_content']);
 		return <<<EOD
 		<h1>{$this->page['c_subject']}</h1>
 		<p>
-		{$this->page['c_content']}
+		{$content}
 		</p>
 EOD;
 	}

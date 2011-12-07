@@ -35,7 +35,7 @@ EOD;
 <form method="post" action="{$formValidatorURL}">
 	<input type="text" name="title" id="title" style="width: 100%;" />
 	<input type="text" name="subject" id="subject" style="width: 100%;" />
-	<textarea name="post" id="subject" style="width: 100%;"></textarea>
+	<textarea name="post" id="post" style="width: 100%;"></textarea>
 	<input type="submit" value="Submit" />
 </form>
 EOD;
