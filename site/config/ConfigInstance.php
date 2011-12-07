@@ -24,6 +24,9 @@ class ConfigInstance {
 			require_once ROOT.'sql/mysql/MysqlMVCDatabase.php';
 			return new MysqlMVCDatabase();
 		}
+	}	
+	public function getDatabaseType(){
+		return $this->config['db']['type'];
 	}
 	public function getTheme(){
 		if(!isset($this->config['theme']['theme']) || $this->config['theme']['theme'] == null){

@@ -22,7 +22,7 @@ class SqliteMVCDatabase implements DatabaseInterface {
 	public function disconnect(){
 		//$this->sqlite->close();
 	}
-	public function query(){
+	public function query($query){
 		$this->query = $query;
 	}
 	public function escape($out){
@@ -42,6 +42,7 @@ class SqliteMVCDatabase implements DatabaseInterface {
 		return $result;
 	}
 	public function execute(){
+		echo nl2br($this->query);
 		$this->sqlite->queryExec($this->query);
 		$this->id = $this->sqlite->key();//??
 	}

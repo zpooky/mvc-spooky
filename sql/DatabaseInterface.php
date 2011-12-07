@@ -2,7 +2,7 @@
 interface DatabaseInterface {
 	public function connect();
 	public function disconnect();
-	public function query();
+	public function query($query);
 	public function escape($out);
 	public function dump();
 	public function fetch();
