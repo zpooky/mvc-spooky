@@ -213,9 +213,9 @@ EOD;
 	}
 	public function getFooterContainer(){
 		$footer4 = $this->getFooterColumn4();
-		$footer3 = $this->getFooterColumn3(!$this->view->footerColumn2);
-		$footer2 = $this->getFooterColumn2(!$this->view->footerColumn1);
-		$footer1 = $this->getFooterColumn1(!$this->view->footerColumn4);
+		$footer3 = $this->getFooterColumn3(!$this->view->footerColumn4);
+		$footer2 = $this->getFooterColumn2((!$this->view->footerColumn4 || !$this->view->footerColumn3));
+		$footer1 = $this->getFooterColumn1((!$this->view->footerColumn4 || !$this->view->footerColumn3 || !$this->view->footerColumn2));
 		$returnHtml = <<<EOD
 			<!-- FOOTER CONTAINER-->
 			<div class="prepend-top">

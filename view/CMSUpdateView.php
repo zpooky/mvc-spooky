@@ -1,10 +1,6 @@
 <?php
 require_once 'BaseView.php';
 class CMSCreateView extends BaseView {
-	private $page;
-	public function setPage($page){
-		$this->page = $page;
-	}
 	public function getJavaScript(){
 		return array('<script type="text/javascript" src="js/nicEdit/nicEdit.js"></script>');
 	}
@@ -26,7 +22,7 @@ EOD;
 EOD;
 	}
 	public function getTitle(){
-		return 'Title';
+		return 'Update - '.$this->page['c_title'];;
 	}
 	public function sidebarLeft(){
 		return <<<EOD
@@ -34,12 +30,12 @@ EOD;
 EOD;
 	}
 	public function body(){
-		$formValidatorURL = ROOT.'form/FormHandler.php?c=CMSFormHandler&f=create';
+		$formValidatorURL = ROOT.'form/FormHandler.php?c=CMSFormHandler&f=update';
 		return <<<EOD
 <form method="post" action="{$formValidatorURL}">
-	<input type="text" name="title" id="title" style="width: 100%;" />
-	<input type="text" name="subject" id="subject" style="width: 100%;" />
-	<textarea name="post" id="post" style="width: 100%;"></textarea>
+	<input type="text" name="title" id="title" value="{$this->page['c_title']}" style="width: 100%;" />
+	<input type="text" name="subject" id="subject" value="{$this->page['subject']}" style="width: 100%;" />
+	<textarea name="post" id="post" style="width: 100%;">{$this->page['c_content']}</textarea>
 	<input type="submit" value="Submit" />
 </form>
 EOD;
