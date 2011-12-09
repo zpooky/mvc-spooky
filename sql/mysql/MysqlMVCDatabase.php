@@ -4,6 +4,9 @@
 require_once ROOT.'sql/DatabaseInterface.php';
 require_once ROOT.'site/config/ConfigInstance.php';
 
+@define('SINGLEQUERY',0);
+@define('MULTIQUERY',1);
+
 class MysqlMVCDatabase implements DatabaseInterface {
 	private $dbhost;
     private $dbport;
@@ -14,6 +17,7 @@ class MysqlMVCDatabase implements DatabaseInterface {
     
     private $mysql;
     private $query;
+    private $flag;
     private $data;
     public 	$timer;
     public 	$id;
@@ -61,8 +65,13 @@ class MysqlMVCDatabase implements DatabaseInterface {
 	public function query($query)
 	{
 	   $this->query = $query;
+	   $this->flag = SINGLEQUERY;
 	}
-    public function escape($out)
+	public function multiQuery($query){
+		$this->query = $query;
+		$this->flag = MULTIQUERY;
+	}
+    public function escape(&$out)
     {
         return $this->mysql->real_escape_string($out);
     }
@@ -91,8 +100,13 @@ class MysqlMVCDatabase implements DatabaseInterface {
 	}
 	public function execute()
 	{
-		$this->mysql->query($this->query);
-		$this->id = $this->mysql->insert_id;
+	    if($this->flag == SINGLEQUERY){
+            $this->mysql->query($this->query);
+            $this->id = $this->mysql->insert_id;
+        } else
+        if($this->flag == MULTIQUERY){
+            $this->mysql->multi_query($this->query);
+        }
 	}
 	public function getPrimaryKeyId(){
 		return $this->id;

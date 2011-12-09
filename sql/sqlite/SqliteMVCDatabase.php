@@ -4,6 +4,9 @@
 require_once ROOT.'sql/DatabaseInterface.php';
 require_once ROOT.'site/config/ConfigInstance.php';
 
+@define('SINGLEQUERY',0);
+@define('MULTIQUERY',1);
+
 class SqliteMVCDatabase implements DatabaseInterface {
 	private $sqlite = null;
 	private $query;
@@ -25,7 +28,10 @@ class SqliteMVCDatabase implements DatabaseInterface {
 	public function query($query){
 		$this->query = $query;
 	}
-	public function escape($out){
+	public function multiQuery($query){
+		throw new Exception('adsasd', 1);
+	}
+	public function escape(&$out){
 		return mysql_real_escape_string($out);
 	}
 	public function dump(){

@@ -15,13 +15,19 @@ if ($handle = opendir($rootDir)) {
 	            	$install = new $class();
 	            	$installFunction = 'install'.ConfigInstance::getInstance()->getDatabaseType();
 	            	$dropFunction = 'drop'.ConfigInstance::getInstance()->getDatabaseType();
-	            	$db->query($install->$dropFunction());
-	            	$db->execute();
-	            	$db->query($install->$installFunction());
-	            	$db->execute();
-	            	echo 'module <i><b>'.$file.'</b></i> installed!<br/>';
+	            	$dropQuery = $install->$dropFunction();
+	            	if(!empty($dropQuery)){
+	            		$db->query($dropQuery);
+	            		$db->execute();
+	            	}
+	            	$installQuery = $install->$installFunction();
+	            	if(!empty($installQuery)){
+	            		$db->query($installQuery);
+	            		$db->execute();
+	            	}
+	            	echo 'Module <i><b>'.$file.'</b></i> installed!<br/>';
             	} catch(Exception $e){
-          			echo 'module <i><b>'.$file.'</b></i> is not a valid module!<br/>';
+          			echo 'Module <i><b>'.$file.'</b></i> is not a valid module!<br/>';
             	}
             }
         }

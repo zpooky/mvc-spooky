@@ -6,7 +6,8 @@ USE mvc;
 DROP TABLE IF EXISTS user;
 CREATE TABLE user (
 	u_id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
-	u_user CHAR(100) NOT NULL
+	u_user CHAR(100) NOT NULL,
+	u_password CHAR(100) NOT NULL
 );
 
 DROP TABLE IF EXISTS cms;
@@ -20,10 +21,10 @@ CREATE TABLE cms (
 	CONSTRAINT FOREIGN KEY (c_u_id) REFERENCES user(u_id)
 );
 
-INSERT INTO user (u_user) VALUES('spooky');
-INSERT INTO user (u_user) VALUES('booky');
-INSERT INTO user (u_user) VALUES('looky');
-INSERT INTO user (u_user) VALUES('tooky');
+INSERT INTO user (u_user) VALUES('spooky',SHA1('spooky'));
+INSERT INTO user (u_user) VALUES('booky',SHA1('spooky'));
+INSERT INTO user (u_user) VALUES('looky',SHA1('spooky'));
+INSERT INTO user (u_user) VALUES('tooky',SHA1('spooky'));
 INSERT INTO cms (c_title,c_subject,c_content,c_posted,c_u_id) VALUES('c_title','c_subject1','c_content','c_posted',1);
 INSERT INTO cms (c_title,c_subject,c_content,c_posted,c_u_id) VALUES('c_title','c_subject2','c_content','c_posted',2);
 INSERT INTO cms (c_title,c_subject,c_content,c_posted,c_u_id) VALUES('c_title','c_subject3','c_content','c_posted',3);
