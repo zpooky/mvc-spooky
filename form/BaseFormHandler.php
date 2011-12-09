@@ -18,8 +18,8 @@ abstract class BaseFormHandler {
 		$this->db->connect();
 		return $this->db;
 	}
-	protected function getModel($modelClass){
-		require_once ROOT.'model/'.$modelClass.'.php';
+	protected function getModel($modelClass,$module = ''){
+		require_once ROOT.$module.'model/'.$modelClass.'.php';
 		$model = new $modelClass;
 		$model->setDatabase($this->getDatabase());
 		return $model;

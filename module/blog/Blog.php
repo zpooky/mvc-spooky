@@ -16,7 +16,7 @@ class Blog implements ModuleInterface {
 EOD;
 	}
 	public function getBlogPoster(){
-		$formValidatorURL = ROOT.'form/FormHandler.php?c=BlogFormHandler&f=validate&u='.urlencode('module/blog/form/');
+		$formValidatorURL = ROOT.'form/FormHandler.php?c=BlogFormHandler&f=validate&u='.urlencode('blog');
 		return <<<EOD
 <form method="post" action="{$formValidatorURL}">
 	<input type="text" name="blog_subject" id="blog_subject" style="width: 100%;" />

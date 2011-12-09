@@ -1,7 +1,7 @@
 <?php
 @define('ROOT','../');
 
-require_once ROOT.'/model/BaseModel.php';
+require_once ROOT.'model/BaseModel.php';
 
 class CMSModel extends BaseModel {
 	public function getPage($p){
