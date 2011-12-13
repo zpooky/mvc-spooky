@@ -3,6 +3,9 @@
 require_once(ROOT.'controller/BaseController.php');
 
 class CMSController extends BaseController {
+	public function getRedirectBase(){
+		return 'cms';
+	}
 	protected function loadDatabase(){
 		return true;
 	}

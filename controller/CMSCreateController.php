@@ -3,6 +3,9 @@
 require_once(ROOT.'controller/SecureBaseController.php');
 
 class CMSCreateController extends SecureBaseController {
+	public function getRedirectBase(){
+		return 'cms/create';
+	}
 	protected function loadDatabase(){
 		return false;
 	}

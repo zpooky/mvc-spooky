@@ -3,6 +3,9 @@
 require_once(ROOT.'controller/BaseController.php');
 
 class HomeController extends BaseController {
+	public function getRedirectBase(){
+		return 'home';
+	}
 	protected function loadDatabase(){
 		return true;
 	}

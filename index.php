@@ -1,12 +1,17 @@
 <?php session_start();
 @define('ROOT','');
+require_once ROOT.'lib/Rewrite.php';
 
 if(!isset($_GET['p'])){
 	$_GET['p'] = 'home';
 }
+$rewrite = new Rewrite();
+$query = Rewrite::getQuery($_SERVER['REDIRECT_URL']);
+$rewrite->controll($query);
+echo "fuck";
 
-$_SESSION['LOGGED_IN'] = true;
 
+/*
 switch($_GET['p']){
 	case 'home':
 		require_once ROOT.'controller/HomeController.php';
@@ -27,5 +32,5 @@ switch($_GET['p']){
 		require_once ROOT.'controller/HomeController.php';
 		$controller = new HomeController();
 		$controller->controll();
-}
+}*/
 ?>

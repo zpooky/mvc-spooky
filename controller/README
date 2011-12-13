@@ -1,1 +1,2 @@
-.
+The controller name 'BaseController' is reserved for abstract classes and should not be used for controllers.
+Regular Expression: '/BaseController.php$/'

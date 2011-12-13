@@ -26,10 +26,10 @@ class Theme implements ThemeInterface {
 		{$this->getJs()}
 		<!-- CSS -->
 		{$this->getCSS()}
-		<link rel="stylesheet" href="theme/blueprint/screen.css" type="text/css" media="screen, projection">
-		<link rel="stylesheet" href="theme/blueprint/print.css" type="text/css" media="print">
-		<link rel="stylesheet" href="theme/default/css/style.css" type="text/css">
-		<!--[if lt IE 8]><link rel="stylesheet" href="../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+		<link rel="stylesheet" href="http://localhost/mvc-spooky/theme/blueprint/screen.css" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="http://localhost/mvc-spooky/theme/blueprint/print.css" type="text/css" media="print">
+		<link rel="stylesheet" href="http://localhost/mvc-spooky/theme/default/css/style.css" type="text/css">
+		<!--[if lt IE 8]><link rel="stylesheet" href="http://localhost/mvc-spooky/theme/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 		{$this->getHead()}
 	</head>
 	<body>

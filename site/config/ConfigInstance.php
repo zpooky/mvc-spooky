@@ -66,5 +66,14 @@ class ConfigInstance {
 		}
 		return $this->config['db']['root'];
 	}
+	public function getRoot(){
+		if($this->config['site']['root'][0] != '/'){
+			$this->config['site']['root'] = '/'.$this->config['site']['root'];
+		}
+		if($this->config['site']['root'][strlen($this->config['site']['root'])-1] != '/'){
+			$this->config['site']['root'] = $this->config['site']['root'].'/';
+		}
+		return $this->config['site']['root'];
+	}
 }
 ?>

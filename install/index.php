@@ -2,6 +2,7 @@
 @define('ROOT','../');
 require_once ROOT.'site/config/ConfigInstance.php';
 $rootDir = ROOT.'module/';
+echo '<h1>Installing <i><b>'.ConfigInstance::getInstance()->getDatabaseType().'</b></i></h1>';
 if ($handle = opendir($rootDir)) {
 	$db = ConfigInstance::getInstance()->getDatabase();
 	$db->connect();
@@ -33,5 +34,12 @@ if ($handle = opendir($rootDir)) {
         }
     }
     closedir($handle);
+    $arr = file(ROOT.'sql/'.ConfigInstance::getInstance()->getDatabaseType().'/install/structure.sql');
+    $installQuery = implode('', $arr);
+	if(!empty($installQuery)){
+		$db->multiQuery($installQuery);
+		$db->execute();
+	}
+	echo 'Base installed.';
 }
 ?>

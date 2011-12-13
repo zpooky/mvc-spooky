@@ -2,7 +2,10 @@
 @define('ROOT','../');
 require_once(ROOT.'controller/BaseController.php');
 
-class CMSController extends BaseController {
+class CMSUpdateController extends BaseController {
+	public function getRedirectBase(){
+		return 'cms/update';
+	}
 	protected function loadDatabase(){
 		return true;
 	}

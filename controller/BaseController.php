@@ -6,10 +6,12 @@ require_once ROOT.'site/config/ConfigInstance.php';
 abstract class BaseController {
 	private $db = null;
 	private $view;
-	public function __construct(){
-		$this->loadDrivers();
+	public function __construct($load = true){
+		if($load){
+			$this->loadDrivers();
+		}
 	}
-
+/*
 	function __autoload($className){
 		$len = strlen($className);
 		if(stristr($className,'Controller')){
@@ -23,8 +25,8 @@ abstract class BaseController {
 		} else if(stristr($className,'Module')){//fix
 			require_once ROOT.'module/'.substr($className,0,strpos($className,'Module')).'/'.$className;
 		}
-	}
-
+	}*/
+	public abstract function getRedirectBase();
 	protected abstract function loadDatabase();
 	protected abstract function loadViewClass();
 	//required loggin
@@ -60,7 +62,7 @@ abstract class BaseController {
 		$this->view = new $className;
 		$this->view->setMessage($message);
 	}
-	private function loadDrivers(){
+	public function loadDrivers(){
 		if($this->loadDatabase()){
 			$config = ConfigInstance::getInstance();
 			$this->db = $config->getDatabase();
