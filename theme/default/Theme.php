@@ -2,6 +2,7 @@
 @define('ROOT','../../');
 
 require_once(ROOT.'theme/ThemeInterface.php');
+require_once ROOT.'site/config/ConfigInstance.php';
 
 class Theme implements ThemeInterface {
 	//width calculations
@@ -15,6 +16,7 @@ class Theme implements ThemeInterface {
 	}
 
 	public function assemble(){
+		$root = ConfigInstance::getInstance()->getURLRoot();
 		return <<<EOD
 <!DOCTYPE html>
 <html lang="en" class="default">
@@ -26,10 +28,10 @@ class Theme implements ThemeInterface {
 		{$this->getJs()}
 		<!-- CSS -->
 		{$this->getCSS()}
-		<link rel="stylesheet" href="http://localhost/mvc-spooky/theme/blueprint/screen.css" type="text/css" media="screen, projection">
-		<link rel="stylesheet" href="http://localhost/mvc-spooky/theme/blueprint/print.css" type="text/css" media="print">
-		<link rel="stylesheet" href="http://localhost/mvc-spooky/theme/default/css/style.css" type="text/css">
-		<!--[if lt IE 8]><link rel="stylesheet" href="http://localhost/mvc-spooky/theme/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+		<link rel="stylesheet" href="{$root}theme/blueprint/screen.css" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="{$root}theme/blueprint/print.css" type="text/css" media="print">
+		<link rel="stylesheet" href="{$root}theme/default/css/style.css" type="text/css">
+		<!--[if lt IE 8]><link rel="stylesheet" href="{$root}theme/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 		{$this->getHead()}
 	</head>
 	<body>
@@ -49,7 +51,7 @@ class Theme implements ThemeInterface {
 			{$this->getBottomContainer()}
 			{$this->getFooterContainer()}
 			<!-- BOTTOM -->
-			<div id="ms-footer" class="append-bottom">
+			<div id="ms-footer" class="append-bottom"><!-- last? -->
 				{$this->view->footer()}
 			</div>
 		</div>

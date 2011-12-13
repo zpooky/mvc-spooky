@@ -75,5 +75,11 @@ class ConfigInstance {
 		}
 		return $this->config['site']['root'];
 	}
+	public function getURLRoot(){
+		if($this->config['site']['url'][strlen($this->config['site']['url'])-1] != '/'){
+			$this->config['site']['url'] = $this->config['site']['url'].'/';
+		}
+		return $this->config['site']['url'];
+	}
 }
 ?>

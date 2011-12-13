@@ -6,6 +6,9 @@ class HomeController extends BaseController {
 	public function getRedirectBase(){
 		return 'home';
 	}
+	public function getRedirectPage(){
+		return '';
+	}
 	protected function loadDatabase(){
 		return true;
 	}

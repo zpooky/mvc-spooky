@@ -17,6 +17,7 @@ $ci = ConfigInstance::getInstance();
  * ROOT
  */
 $ci->config['site']['root'] = '/mvc-spooky/';
+$ci->config['site']['url'] = 'http://localhost/mvc-spooky/';
 /**
  * DATABASE
  */

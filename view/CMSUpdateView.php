@@ -1,8 +1,14 @@
 <?php
-require_once 'BaseView.php';
+@define('ROOT','../');
+require_once ROOT.'view/BaseView.php';
+
 class CMSUpdateView extends BaseView {
+	private $page;
+	public function setPage($page){
+		$this->page = $page;
+	}
 	public function getJavaScript(){
-		return array('<script type="text/javascript" src="js/nicEdit/nicEdit.js"></script>');
+		return array('<script type="text/javascript" src="'.$this->getURLRoot().'js/nicEdit/nicEdit.js"></script>');
 	}
 	public function head(){
 		return <<<EOD
@@ -30,9 +36,10 @@ EOD;
 EOD;
 	}
 	public function body(){
-		$formValidatorURL = ROOT.'form/FormHandler.php?c=CMSFormHandler&f=update';
+		$formValidatorURL = $this->getURLRoot().'form/FormHandler.php?c=CMSFormHandler&f=update';
 		return <<<EOD
 <form method="post" action="{$formValidatorURL}">
+	<input type="hidden" name="id" value="{$this->page['c_id']}" />
 	<input type="text" name="title" id="title" value="{$this->page['c_title']}" style="width: 100%;" />
 	<input type="text" name="subject" id="subject" value="{$this->page['c_subject']}" style="width: 100%;" />
 	<textarea name="post" id="post" style="width: 100%;">{$this->page['c_content']}</textarea>

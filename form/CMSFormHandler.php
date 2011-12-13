@@ -11,8 +11,8 @@ class CMSFormHandler extends BaseFormHandler {
 		$content = $post['post'];
 		$loginModule = $this->getModule('login');
 		$user_id = $loginModule->getUserId();
-		$model->create($title,$subject,$content,$user_id);
-		//Util::redirect('');
+		$id = $model->create($title,$subject,$content,$user_id);
+		Util::redirect($this->getURLRoot().'cms/home/'.$id);
 	}
 	public function update(){
 		$model = $this->getModel('CMSModel');
@@ -23,6 +23,6 @@ class CMSFormHandler extends BaseFormHandler {
 		$content = $post['post'];
 		$loginModule = $this->getModule('login');
 		$model->update($id,$title,$subject,$content);
-		//Util::redirect('');
+		Util::redirect($this->getURLRoot().'cms/home/'.$id);
 	}
 }

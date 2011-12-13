@@ -6,7 +6,7 @@ class CMSCreateView extends BaseView {
 		$this->page = $page;
 	}
 	public function getJavaScript(){
-		return array('<script type="text/javascript" src="js/nicEdit/nicEdit.js"></script>');
+		return array('<script type="text/javascript" src="'.$this->getURLRoot().'js/nicEdit/nicEdit.js"></script>');
 	}
 	public function head(){
 		return <<<EOD
@@ -34,7 +34,7 @@ EOD;
 EOD;
 	}
 	public function body(){
-		$formValidatorURL = ROOT.'form/FormHandler.php?c=CMSFormHandler&f=create';
+		$formValidatorURL = $this->getURLRoot().'form/FormHandler.php?c=CMSFormHandler&f=create';
 		return <<<EOD
 <form method="post" action="{$formValidatorURL}">
 	<input type="text" name="title" id="title" style="width: 100%;" />

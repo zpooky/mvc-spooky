@@ -18,6 +18,9 @@ abstract class BaseFormHandler {
 		$this->db->connect();
 		return $this->db;
 	}
+	public function getURLRoot(){
+		return ConfigInstance::getInstance()->getURLRoot();
+	}
 	protected function getModel($modelClass,$module = ''){
 		require_once ROOT.$module.'model/'.$modelClass.'.php';
 		$model = new $modelClass;

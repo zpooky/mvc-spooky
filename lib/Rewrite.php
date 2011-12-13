@@ -11,14 +11,23 @@ class Rewrite {
 			require_once ROOT.'controller/'.$controllerString;
 			$controllerClass = substr($controllerString,0,strlen($controllerString)-4);
 			$controller = new $controllerClass(false);
-			$redirectQuery = $controller->getRedirectBase();
-			if(substr($redirectQuery, 0,strlen($query)) == $query){
-				//echo substr($query, 0,strlen($redirectQuery))." == ".$redirectQuery.'<br>';
+			if(self::compareRedirect($query,$controller->getRedirectBase(),$controller->getRedirectPage())){
+				$controller->setGET(self::getArgument($query,$controller->getRedirectBase(),$controller->getRedirectPage()));
 				$controller->loadDrivers();
 				$controller->controll();
 				exit();
 			}
 		}
+	}
+	private static function compareRedirect($query,$controllerBase,$controllerPage){
+		$chunks = explode('/', $query);
+		$chunks[0] = isset($chunks[0]) ? $chunks[0] : '';
+		$chunks[1] = isset($chunks[1]) ? $chunks[1] : '';
+		return ($controllerBase == $chunks[0] && $controllerPage == $chunks[1]);
+	}
+	private static function getArgument($query,$controllerBase,$controllerPage){
+		$start = strlen($controllerBase)+strlen($controllerPage)+1;
+		return substr($query, $start);
 	}
 	private static function getControllers(){
 		$rootDir = ROOT.'controller/';

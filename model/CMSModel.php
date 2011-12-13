@@ -28,6 +28,7 @@ class CMSModel extends BaseModel {
 		(c_title,c_subject,c_content,c_u_id)
 		VALUES('".$title."','".$subject."','".$content."',".$user_id.")");
 		$db->execute();
+		return $db->getPrimaryKeyId();
 	}
 	public function update(&$id,&$title,&$subject,&$content){
 		$db = $this->getDatabase();
@@ -37,9 +38,10 @@ class CMSModel extends BaseModel {
 		$content = $db->escape($content);
 		$db->query("
 		UPDATE cms
-		SET c_title = '".$title."',c_subject = '".$subject."',c_content = '".$content."
+		SET c_title = '".$title."',c_subject = '".$subject."',c_content = '".$content."'
 		WHERE c_id = ".$id."
 		LIMIT 1");
+		//$db->dump();
 		$db->execute();
 	}
 }

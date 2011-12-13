@@ -6,6 +6,9 @@ class CMSController extends BaseController {
 	public function getRedirectBase(){
 		return 'cms';
 	}
+	public function getRedirectPage(){
+		return 'home';
+	}
 	protected function loadDatabase(){
 		return true;
 	}
@@ -25,10 +28,10 @@ class CMSController extends BaseController {
 	}
 	public function getPage(){
 		$get = $this->getGET();
-		if(!isset($get['i']) || $get['i'] == null || empty($get['i'])){
+		if(!isset($get[0]) || $get[0] == null || empty($get[0])){
 			throw new Exception('Page not defined.',2);
 		}
-		return (int)$get['i'];
+		return (int)$get[0];
 	}
 }
 ?>

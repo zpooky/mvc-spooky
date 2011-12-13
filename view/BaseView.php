@@ -1,6 +1,8 @@
 <?php
 @define('ROOT','../');
 require_once ROOT.'view/ViewAssembler.php';
+require_once ROOT.'site/config/ConfigInstance.php';
+
 abstract class BaseView extends ViewAssembler {
 	protected $module = array();
 	public function addModule($module){
@@ -15,7 +17,9 @@ abstract class BaseView extends ViewAssembler {
 	public function head(){
 		
 	}
-	
+	public function getURLRoot(){
+		return ConfigInstance::getInstance()->getURLRoot();
+	}
 	public abstract function header();
 	//Array of menu items
 	public abstract function menu();
