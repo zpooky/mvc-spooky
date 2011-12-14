@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /controller/
+Disallow: /db/
+Disallow: /form/
+Disallow: /img/
+Disallow: /install/
+Disallow: /js/
+Disallow: /lib/
+Disallow: /model/
+Disallow: /module/
+Disallow: /site/
+Disallow: /sql/
+Disallow: /theme/
+Disallow: /view/
