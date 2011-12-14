@@ -7,9 +7,9 @@ class Login {
 		$formValidatorURL = $url.'form/FormHandler.php?c=LoginFormHandler&f=login&u='.urlencode('login');
 		return <<<EOD
 <form method="post" action="{$formValidatorURL}">
-	<input type="text" name="username" id="username" />
-	<input type="password" name="password" id="password" />
-	<input type="submit" id="login" value="Submit" />
+	<label for="username">Username: </label><input type="text" name="username" id="username" /><br />
+	<label for="password">Password: </label><input type="password" name="password" id="password" /><br />
+	<input type="submit" id="login" value="Submit" /><br />
 </form>
 EOD;
 	}

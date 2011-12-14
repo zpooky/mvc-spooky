@@ -1,5 +1,6 @@
 <?php
 @define('ROOT','../../../');
+require_once ROOT.'lib/Util.php';
 require_once ROOT.'form/BaseFormHandler.php';
 
 class LoginFormHandler extends BaseFormHandler {
@@ -14,7 +15,7 @@ class LoginFormHandler extends BaseFormHandler {
 			$_SESSION['LOGGED_IN'] = false;
 			unset($_SESSION['U_ID']);
 		}
-		//header('Location: '.);
+		Util::redirect($this->getURLRoot().'home');
 	}
 }
 

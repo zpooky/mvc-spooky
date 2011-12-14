@@ -10,7 +10,7 @@ if(!isset($_GET['c']) || !isset($_GET['f'])){
 }
 
 //crappy crap crap
-$url = !isset($_GET['u']) || $_GET['u'] == null ? ROOT.'form/' : ROOT.'module/'.urldecode($_GET['u']).'/form';
+$url = !isset($_GET['u']) || $_GET['u'] == null ? ROOT.'form/' : ROOT.'module/'.urldecode($_GET['u']).'/form/';
 $class = str_replace(array('/','\\'), '', $_GET['c']);
 $function = $_GET['f'];
 require_once $url.$class.'.php';
