@@ -16,10 +16,9 @@ class HomeController extends BaseController {
 		return 'HomeView';
 	}
 	protected function index(){
-		$blogModule = $this->getModule('Blog');
-		$this->getView()->addModule($blogModule);
-		$this->getView()->setPoster($blogModule->getBlogPoster());
-		$homeModel = $this->getModel('HomeModel');
+		$loginModule = $this->getModule('login');
+		$view = $this->getView();
+		$view->setPoster($loginModule->getLoginForm(''));
 	}
 }
 ?>

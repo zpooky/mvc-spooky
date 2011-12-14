@@ -1,12 +1,15 @@
 <?php
+@define('ROOT','../../');
+require_once ROOT.'site/config/ConfigInstance.php';
 class Login {
 	public function getLoginForm($redirectTo){
-		$formValidatorURL = ROOT.'form/FormHandler.php?c=LoginFormHandler&f=login&u='.urlencode('login');
+		$url = ConfigInstance::getInstance()->getURLRoot();
+		$formValidatorURL = $url.'form/FormHandler.php?c=LoginFormHandler&f=login&u='.urlencode('login');
 		return <<<EOD
 <form method="post" action="{$formValidatorURL}">
-<input type="text" name="username" id="username" />
-<input type="password" name="password" id="password" />
-<input type="submit" id="login" />
+	<input type="text" name="username" id="username" />
+	<input type="password" name="password" id="password" />
+	<input type="submit" id="login" value="Submit" />
 </form>
 EOD;
 	}
@@ -23,8 +26,7 @@ EOD;
 	}
 	public function logout(){
 		session_destroy();
-		unset($_SESSION['LOGGED_IN']);
-		unset($_SESSION['U_ID']);
+		unset($_SESSION);
 		session_start();
 		$_SESSION['LOGGED_IN'] = false;
 	}

@@ -7,10 +7,10 @@ abstract class BaseController {
 	private $db = null;
 	private $view;
 	private $get;
-	public function __construct($load = true){
-		if($load){
-			$this->loadDrivers();
-		}
+	public function __construct(){
+	}
+	public function postConstruct(){
+		$this->loadDrivers();
 	}
 /*
 	function __autoload($className){
@@ -82,7 +82,10 @@ abstract class BaseController {
 		$className = $this->loadViewClass();
 		$this->view = new $className;
 	}
-	public function controll(){
+	public function controll($bypassPostConstruct = false){
+		if(!$bypassPostConstruct){
+			$this->postConstruct();
+		}
 		$this->index();
 		$this->view->assemble();
 	}

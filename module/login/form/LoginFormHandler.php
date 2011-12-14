@@ -2,8 +2,8 @@
 @define('ROOT','../../../');
 require_once ROOT.'form/BaseFormHandler.php';
 
-class BlogFormHandler extends BaseFormHandler {
-	public function validate(){
+class LoginFormHandler extends BaseFormHandler {
+	public function login(){
 		$loginModel = $this->getModel('LoginModel','module/login/');
 		$post = $this->getPOST();
 		try{

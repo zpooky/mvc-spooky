@@ -41,7 +41,6 @@ class CMSModel extends BaseModel {
 		SET c_title = '".$title."',c_subject = '".$subject."',c_content = '".$content."'
 		WHERE c_id = ".$id."
 		LIMIT 1");
-		//$db->dump();
 		$db->execute();
 	}
 }
