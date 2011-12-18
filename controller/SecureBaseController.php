@@ -17,7 +17,7 @@ abstract class SecureBaseController extends BaseController {
 	}
 	private function accessDenied(){
 		$this->get404('Access denied!');
-		$this->controll(true);
+		$this->assemble();
 		exit();
 	}
 }

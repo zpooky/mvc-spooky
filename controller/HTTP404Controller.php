@@ -18,7 +18,6 @@ class HTTP404Controller extends BaseController {
 	protected function index(){
 		$loginModule = $this->getModule('login');
 		$view = $this->getView();
-		$view->setPoster($loginModule->getLoginForm(''));
 		$view->setLoggedIn($loginModule->isLoggedIn());
 	}
 }

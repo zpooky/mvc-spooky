@@ -16,6 +16,9 @@ class DefaultViewUtil {
 </div>
 EOD;
 	}
+	public static function getMainMenu(){
+		
+	}
 }
 
 ?>

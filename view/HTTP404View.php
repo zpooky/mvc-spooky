@@ -3,7 +3,7 @@
 require_once 'BaseView.php';
 require_once ROOT.'lib/view/DefaultViewUtil.php';
 class HTTP404View extends BaseView {
-	private $loggedIn;
+	private $loggedIn = false;
 	private $message = '';
 	public function setLoggedIn($status){
 		$this->loggedIn = $status;
@@ -26,7 +26,7 @@ EOD;
 		return '404';
 	}
 	public function sidebarLeft(){
-		$cmsMenu = DefaultViewUtil::getCMSMenu(true,$this->getURLRoot());
+		$cmsMenu = DefaultViewUtil::getCMSMenu($this->loggedIn,$this->getURLRoot());
 		return <<<EOD
 		{$cmsMenu}
 EOD;

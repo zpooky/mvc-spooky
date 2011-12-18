@@ -31,8 +31,6 @@ abstract class BaseController {
 	public abstract function getRedirectPage();
 	protected abstract function loadDatabase();
 	protected abstract function loadViewClass();
-	//required loggin
-	//requreid admin
 	//...
 	protected abstract function index();
 	protected function getView(){
@@ -87,6 +85,9 @@ abstract class BaseController {
 			$this->postConstruct();
 		}
 		$this->index();
+		$this->view->assemble();
+	}
+	protected function assemble(){
 		$this->view->assemble();
 	}
 }

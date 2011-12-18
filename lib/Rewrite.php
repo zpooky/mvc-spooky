@@ -18,6 +18,7 @@ class Rewrite {
 				exit();
 			}
 		}
+		self::run404();
 	}
 	private static function compareRedirect($query,$controllerBase,$controllerPage){
 		$chunks = explode('/', $query);
@@ -68,6 +69,12 @@ class Rewrite {
 			}
 		}
 		return $controllers;
+	}
+	private static function run404(){
+		require_once ROOT.'controller/HTTP404Controller.php';
+		$controller = new HTTP404Controller();
+		$controller->controll();
+		exit();
 	}
 }
 ?>
