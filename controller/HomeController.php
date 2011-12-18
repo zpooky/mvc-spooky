@@ -19,6 +19,7 @@ class HomeController extends BaseController {
 		$loginModule = $this->getModule('login');
 		$view = $this->getView();
 		$view->setPoster($loginModule->getLoginForm(''));
+		$view->setLoggedIn($loginModule->isLoggedIn());
 	}
 }
 ?>
