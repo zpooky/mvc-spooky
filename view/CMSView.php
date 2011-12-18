@@ -13,9 +13,7 @@ class CMSView extends BaseView {
 EOD;
 	}
 	public function menu(){
-		return array(
-			'home' => array('text'=>'Home', 'url'=>'home'),
-		);
+		return DefaultViewUtil::getMainMenu();
 	}
 	public function getTitle(){
 		return $this->page['c_title'];

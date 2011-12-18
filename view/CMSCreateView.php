@@ -19,9 +19,7 @@ EOD;
 EOD;
 	}
 	public function menu(){
-		return  array(
-			'home' => array('text'=>'Home', 'url'=>'home'),
-		);
+		return DefaultViewUtil::getMainMenu();
 	}
 	public function getTitle(){
 		return 'Title';

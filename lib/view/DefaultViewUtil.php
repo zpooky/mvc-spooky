@@ -17,7 +17,9 @@ class DefaultViewUtil {
 EOD;
 	}
 	public static function getMainMenu(){
-		
+		return array(
+			'home' => array('text'=>'Home', 'url'=>'home'),
+		);
 	}
 }
 
