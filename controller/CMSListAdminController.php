@@ -23,6 +23,8 @@ class CMSListAdminController extends SecureBaseController {
 		$data = $cmsModel->listAll('DESC');
 		$view = $this->getView();
 		$view->setData($data);
+		$loginModule = $this->getModule('login');
+		$view->setLoggedIn($loginModule->isLoggedIn());
 	}
 }
 ?>

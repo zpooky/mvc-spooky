@@ -1,13 +1,20 @@
 <?php
+@define('ROOT','../');
 require_once 'BaseView.php';
+require_once ROOT.'lib/view/DefaultViewUtil.php';
 class HTTP404View extends BaseView {
-	private $message;
+	private $loggedIn;
+	private $message = '';
+	public function setLoggedIn($status){
+		$this->loggedIn = $status;
+	}
+	
 	public function setMessage($message){
 		$this->message = $message;
 	}
 	public function header(){
 		return <<<EOD
-	Header	
+	<h1>Header</h1>	
 EOD;
 	}
 	public function menu(){
@@ -19,8 +26,9 @@ EOD;
 		return '404';
 	}
 	public function sidebarLeft(){
+		$cmsMenu = DefaultViewUtil::getCMSMenu(true,$this->getURLRoot());
 		return <<<EOD
-		left
+		{$cmsMenu}
 EOD;
 	}
 	public function body(){

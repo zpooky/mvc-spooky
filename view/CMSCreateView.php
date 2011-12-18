@@ -15,7 +15,7 @@ EOD;
 	}
 	public function header(){
 		return <<<EOD
-	Header	
+<h1>Header</h1>
 EOD;
 	}
 	public function menu(){

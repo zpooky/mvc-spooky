@@ -1,7 +1,7 @@
 <?php
 @define('ROOT','../');
-require_once ROOT.'view/BaseView.php';
-
+require_once 'BaseView.php';
+require_once ROOT.'lib/view/DefaultViewUtil.php';
 class CMSUpdateView extends BaseView {
 	private $page;
 	public function setPage($page){
@@ -19,7 +19,7 @@ EOD;
 	}
 	public function header(){
 		return <<<EOD
-	Header	
+<h1>Header</h1>	
 EOD;
 	}
 	public function menu(){
@@ -31,8 +31,9 @@ EOD;
 		return 'Update - '.$this->page['c_title'];;
 	}
 	public function sidebarLeft(){
+		$cmsMenu = DefaultViewUtil::getCMSMenu(true,$this->getURLRoot());
 		return <<<EOD
-		left
+		{$cmsMenu}
 EOD;
 	}
 	public function body(){

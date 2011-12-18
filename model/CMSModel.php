@@ -7,9 +7,11 @@ class CMSModel extends BaseModel {
 	public function getPage($p){
 		$db = $this->getDatabase();
 		$db->query('
-		SELECT * 
-		FROM cms 
-		WHERE c_id = '.(int)$p.'
+		SELECT c.*, u.u_user
+		FROM cms AS c
+		LEFT JOIN user AS u
+			ON(c.c_u_id = u.u_id)
+		WHERE c.c_id = '.(int)$p.'
 		LIMIT 1');
 		$row = $db->fetch();
 		if(count($row) == 0){

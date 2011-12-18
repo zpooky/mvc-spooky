@@ -1,5 +1,7 @@
 <?php
+@define('ROOT','../');
 require_once 'BaseView.php';
+require_once ROOT.'lib/view/DefaultViewUtil.php';
 class CMSView extends BaseView {
 	private $page;
 	public function setPage($page){
@@ -7,7 +9,7 @@ class CMSView extends BaseView {
 	}
 	public function header(){
 		return <<<EOD
-	Header	
+<h1>Header</h1>	
 EOD;
 	}
 	public function menu(){
@@ -19,8 +21,9 @@ EOD;
 		return $this->page['c_title'];
 	}
 	public function sidebarLeft(){
+		$cmsMenu = DefaultViewUtil::getCMSMenu(true,$this->getURLRoot());
 		return <<<EOD
-		left
+		{$cmsMenu}
 EOD;
 	}
 	public function body(){
@@ -29,6 +32,9 @@ EOD;
 		<h1>{$this->page['c_subject']}</h1>
 		<p>
 		{$content}
+		</p>
+		<p>
+		By {$this->page['u_user']}
 		</p>
 EOD;
 	}
