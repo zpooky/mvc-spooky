@@ -43,6 +43,16 @@ class CMSModel extends BaseModel {
 		LIMIT 1");
 		$db->execute();
 	}
+	public function listAll($order = 'ASC'){
+		$db = $this->getDatabase();
+		$db->query("
+		SELECT c.*, u.u_user
+		FROM cms AS c
+		LEFT JOIN user AS u 
+			ON(c.c_u_id = u.u_id)
+		ORDER BY c.c_id ".$order);
+		return $db->fetch();
+	}
 }
 
 ?>

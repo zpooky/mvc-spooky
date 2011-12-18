@@ -1,5 +1,7 @@
 <?php
+@define('ROOT','../');
 require_once 'BaseView.php';
+require_once ROOT.'lib/view/DefaultViewUtil.php';
 class CMSCreateView extends BaseView {
 	public function getJavaScript(){
 		return array('<script type="text/javascript" src="'.$this->getURLRoot().'js/nicEdit/nicEdit.js"></script>');
@@ -25,8 +27,9 @@ EOD;
 		return 'Title';
 	}
 	public function sidebarLeft(){
+		$cmsMenu = DefaultViewUtil::getCMSMenu(true,$this->getURLRoot());
 		return <<<EOD
-		{$this->getMenu()}
+		{$cmsMenu}
 EOD;
 	}
 	public function body(){
@@ -46,19 +49,6 @@ EOD;
 	public function footer(){
 		return <<<EOD
 			footer	
-EOD;
-	}
-	private function getMenu(){
-		$createCMSURL = '<a href="'.$this->getURLRoot().'cms/create">Create</a>';
-		$listCMSURL = '<a href="'.$this->getURLRoot().'cms/list">List</a>';
-		return <<<EOD
-<div id="menu">
-	<p style="background-color: #b5b5aa;padding-bottom: 0px;margin-bottom:0px;">CMS Menu</p>
-	<ul style="padding-left: 0px;padding-top: 0px;margin-top:0px;">
-	<li style="display: block;">{$createCMSURL}</li>
-	<li style="display: block;">{$listCMSURL}</li>
-	</p>
-</div>
 EOD;
 	}
 }

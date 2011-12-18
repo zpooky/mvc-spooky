@@ -58,16 +58,19 @@ div #ms-promoted {
 div #ms-sidebar-left {
 	background-color: #e7e2d9;
 	height: auto;
+	min-height:400px;
 }
 
 div #ms-body {
 	background-color: #e7e2d9;
 	height: auto;
+	min-height:400px;
 }
 
 div #ms-sidebar-right {
 	background-color: #e7e2d9;
 	height: auto;
+	min-height:400px;
 }
 
 div #ms-left-bottom {

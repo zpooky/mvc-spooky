@@ -1,5 +1,7 @@
 <?php
+@define('ROOT','../');
 require_once 'BaseView.php';
+require_once ROOT.'lib/view/DefaultViewUtil.php';
 class HomeView extends BaseView {
 	private $poster;
 	private $loggedIn;
@@ -23,9 +25,10 @@ EOD;
 		);
 	}
 	public function sidebarLeft(){
+		$cmsMenu = DefaultViewUtil::getCMSMenu($this->loggedIn,$this->getURLRoot());
 		return <<<EOD
 {$this->poster}
-{$this->getMenu()}
+{$cmsMenu}
 EOD;
 	}
 	public function body(){
@@ -38,20 +41,5 @@ EOD;
 			footer	
 EOD;
 	}
-	private function getMenu(){
-		if(!$this->loggedIn){
-			return '';
-		}
-		$createCMSURL = '<a href="'.$this->getURLRoot().'cms/create">Create</a>';
-		$listCMSURL = '<a href="'.$this->getURLRoot().'cms/list">List</a>';
-		return <<<EOD
-<div id="menu">
-	<p style="background-color: #b5b5aa;padding-bottom: 0px;margin-bottom:0px;">CMS Menu</p>
-	<ul style="padding-left: 0px;padding-top: 0px;margin-top:0px;">
-	<li style="display: block;">{$createCMSURL}</li>
-	<li style="display: block;">{$listCMSURL}</li>
-	</p>
-</div>
-EOD;
-	}
+
 }
