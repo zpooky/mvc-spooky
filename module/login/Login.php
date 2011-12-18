@@ -4,6 +4,12 @@ require_once ROOT.'site/config/ConfigInstance.php';
 class Login {
 	public function getLoginForm($redirectTo){
 		$url = ConfigInstance::getInstance()->getURLRoot();
+		if($this->isLoggedIn()){
+			$formValidatorURL = $url.'form/FormHandler.php?c=LoginFormHandler&amp;f=logout&amp;u='.urlencode('login');
+			return <<<EOD
+<a href="{$formValidatorURL}">Logout</a>
+EOD;
+		}
 		$formValidatorURL = $url.'form/FormHandler.php?c=LoginFormHandler&amp;f=login&amp;u='.urlencode('login');
 		return <<<EOD
 <form method="post" action="{$formValidatorURL}">

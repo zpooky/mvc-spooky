@@ -17,6 +17,11 @@ class LoginFormHandler extends BaseFormHandler {
 		}
 		Util::redirect($this->getURLRoot().'home');
 	}
+	public function logout(){
+		$loginModule = $this->getModule("login");
+		$loginModule->logout();
+		Util::redirect($this->getURLRoot().'home');
+	}
 }
 
 ?>

@@ -20,12 +20,12 @@ EOD;
 	}
 	public function sidebarLeft(){
 		return <<<EOD
-			left<br>left<br>left<br>left<br>left<br>asddddddddddddddddddddddddddddddddddddddddddddddddddddddd	
+{$this->poster}
 EOD;
 	}
 	public function body(){
 		return <<<EOD
-			{$this->poster}	
+				
 EOD;
 	}
 	public function footer(){

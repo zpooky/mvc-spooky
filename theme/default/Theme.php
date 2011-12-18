@@ -131,7 +131,9 @@ EOD;
 			return <<<EOD
 			<!-- SIDEBAR LEFT -->
 			<div id="ms-sidebar-left" class="span-4">
+			<div style="padding: 2px 2px 2px 2px;">
 			{$html}
+			</div>
 			</div>	
 EOD;
 		}
@@ -143,7 +145,9 @@ EOD;
 		$this->contentWidth += self::$MIN_BODY_WIDTH;
 		return <<<EOD
 		<div id="ms-body" class="span-{$this->getBodyWidth()}{$add}">
+			<div style="padding: 10px 10px 10px 10px;">
 			{$this->view->body()}
+			</div>
 		</div>
 EOD;
 	}
