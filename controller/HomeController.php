@@ -4,7 +4,7 @@ require_once(ROOT.'controller/BaseController.php');
 
 class HomeController extends BaseController {
 	public function getRedirectBase(){
-		return 'home';
+		return array('home','');
 	}
 	public function getRedirectPage(){
 		return '';

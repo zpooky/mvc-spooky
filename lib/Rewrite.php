@@ -23,11 +23,37 @@ class Rewrite {
 		$chunks = explode('/', $query);
 		$chunks[0] = isset($chunks[0]) ? $chunks[0] : '';
 		$chunks[1] = isset($chunks[1]) ? $chunks[1] : '';
-		return ($controllerBase == $chunks[0] && $controllerPage == $chunks[1]);
+		$return = false;
+		if(is_array($controllerBase)){
+				for($i=0;$i<count($controllerBase)&&!$return;++$i){
+					$return = ($controllerBase[$i] == $chunks[0] && $controllerPage == $chunks[1]);
+				}
+		} else {
+			$return = ($controllerBase == $chunks[0] && $controllerPage == $chunks[1]);
+		}
+		return $return;
 	}
 	private static function getArgument($query,$controllerBase,$controllerPage){
-		$start = strlen($controllerBase)+strlen($controllerPage)+1;
+		$start = self::getBaseLength($query,$controllerBase)+strlen($controllerPage)+1;
 		return substr($query, $start);
+	}
+	private static function getBaseLength($query,$controllerBase){
+		$length = 0;
+		if(is_array($controllerBase)){
+			$continue = true;
+			$chunks = explode('/', $query);
+			$chunks[0] = isset($chunks[0]) ? $chunks[0] : '';
+			for($i=0;$i<count($controllerBase)&&$continue;++$i){
+				if($controllerBase[$i] == $chunks[0]){
+					$length = strlen($controllerBase[$i]);
+					$continue = false;
+				}
+			}
+		} else {
+			$length = strlen($controllerBase);
+		}
+		return $length;
+		
 	}
 	private static function getControllers(){
 		$rootDir = ROOT.'controller/';
