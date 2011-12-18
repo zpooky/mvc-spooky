@@ -5,23 +5,22 @@ class HomeView extends BaseView {
 	public function setPoster($poster){
 		$this->poster = $poster;
 	}
-	
-	public function header(){
-		return <<<EOD
-	Header	
-EOD;
-	}
-	public function menu(){
-		return <<<EOD
-	menu	
-EOD;
-	}
 	public function getTitle(){
 		return 'Title';
 	}
+	public function header(){
+		return <<<EOD
+	<h1>Header</h1>	
+EOD;
+	}
+	public function menu(){
+		return array(
+			'home' => array('text'=>'Home', 'url'=>'home')
+		);
+	}
 	public function sidebarLeft(){
 		return <<<EOD
-		left
+			left<br>left<br>left<br>left<br>left<br>asddddddddddddddddddddddddddddddddddddddddddddddddddddddd	
 EOD;
 	}
 	public function body(){

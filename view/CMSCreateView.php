@@ -21,9 +21,9 @@ EOD;
 EOD;
 	}
 	public function menu(){
-		return <<<EOD
-	menu	
-EOD;
+		return  array(
+			'home' => array('text'=>'Home', 'url'=>'home'),
+		);
 	}
 	public function getTitle(){
 		return 'Title';

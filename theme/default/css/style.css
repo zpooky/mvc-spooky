@@ -1,5 +1,18 @@
+body {
+	background-color: #ccc;
+}
+
+div #container {
+}
+
+#ms-header h1 {
+	padding-left: 20px;
+	padding-top: 20px;
+	color: #b5b5aa;
+}
+
 div #ms-header {
-	background: #272626;
+	background-color: #272626;
 	border-bottom: solid #765139;
 	border-bottom-width: 5px;
 	height: 100px;
@@ -7,52 +20,80 @@ div #ms-header {
 
 div #ms-menu-bar {
 }
+#ms-menu-bar ul {
+	margin-left: 0;
+	padding-left: 0;
+	float: left;
+	width: 100%;
+	background: #272626;
+}
+#ms-menu-bar li {
+	display: inline;
+}
+#ms-menu-bar ul a {
+	float: left;
+	text-decoration: none;
+	padding: 0.3em 2em;
+}
 
-nav #ms-menu {
-	
+#ms-menu-bar a:link{
+	color: #ffffff;
+}
+#ms-menu-bar a:visited{
+	color: #ffffff;
+}
+#ms-menu-bar a:hover{
+	background: #b5b5aa;
+	color: #000;
+}
+#ms-menu-bar a#current{
+	background: #b5b5aa;
+	color: #000;
 }
 
 div #ms-promoted {
-	
+	background-color: #e7e2d9;
 }
 
 div #ms-sidebar-left {
-	
+	background-color: #e7e2d9;
+	height: 400px;
 }
 
 div #ms-body {
+	background-color: #e7e2d9;
 	height: 400px;
 }
 
 div #ms-sidebar-right {
-	
+	background-color: #e7e2d9;
+	height: 400px;
 }
 
 div #ms-left-bottom {
-	
+	background-color: #e7e2d9;
 }
 
 div #ms-middle-bottom {
-	
+	background-color: #e7e2d9;
 }
 
 div #ms-right-bottom {
-	
+	background-color: #e7e2d9;
 }
 
 div #ms-footer-column1 {
-	
+	background-color: #e7e2d9;
 }
 div #ms-footer-column2 {
-	
+	background-color: #e7e2d9;
 }
 div #ms-footer-column3 {
-	
+	background-color: #e7e2d9;
 }
 div #ms-footer-column4 {
-	
+	background-color: #e7e2d9;
 }
 
 div #ms-footer {
-	
 }

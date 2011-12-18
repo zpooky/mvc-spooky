@@ -4,7 +4,7 @@ require_once ROOT.'site/config/ConfigInstance.php';
 class Login {
 	public function getLoginForm($redirectTo){
 		$url = ConfigInstance::getInstance()->getURLRoot();
-		$formValidatorURL = $url.'form/FormHandler.php?c=LoginFormHandler&f=login&u='.urlencode('login');
+		$formValidatorURL = $url.'form/FormHandler.php?c=LoginFormHandler&amp;f=login&amp;u='.urlencode('login');
 		return <<<EOD
 <form method="post" action="{$formValidatorURL}">
 	<label for="username">Username: </label><input type="text" name="username" id="username" /><br />

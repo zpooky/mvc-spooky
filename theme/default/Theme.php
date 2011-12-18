@@ -3,6 +3,7 @@
 
 require_once(ROOT.'theme/ThemeInterface.php');
 require_once ROOT.'site/config/ConfigInstance.php';
+require_once ROOT.'lib/Util.php';
 
 class Theme implements ThemeInterface {
 	//width calculations
@@ -37,14 +38,14 @@ class Theme implements ThemeInterface {
 	<body>
 		<div class="container">
 			<!-- HEADER -->
-			<div id="ms-header">
+			<div id="ms-header" class="span-24 last">
 			{$this->view->header()}
 			</div>
 			<!-- MENU -->
-			<div id="ms-menu-bar">
-				<nav id="ms-menu">
+			<div id="ms-menu-bar" class="span-24 last">
+				<ul id="ms-menu">
 				{$this->getMenu()}
-				</nav>
+				</ul>
 			</div>
 			{$this->getPromoted()}
 			{$this->getContentContainer()}
@@ -89,7 +90,16 @@ EOD;
 		return $returnHeadHtml;
 	}
 	public function getMenu(){
-
+		require_once ROOT.'site/config/ConfigInstance.php';
+		$root = ConfigInstance::getInstance()->getURLRoot();
+		$returnMenuHtml = "";
+		try {
+			foreach($this->view->menu() as $menuItem){
+				$returnMenuHtml .= '<li><a href="'.$root.$menuItem['url'].'">'.$menuItem['text'].'</a></li>';
+			}
+		} catch(Exception $e){
+		}
+		return $returnMenuHtml;
 	}
 	public function getPromoted(){
 		$html = $this->view->promoted();

@@ -4,4 +4,7 @@ class Util {
 		header('Location: '.$location);
 		exit();
 	}
+	public static function prepareURL($location){
+		return str_replace($location, '&amp;',array('&amp;','&'));
+	}
 }
