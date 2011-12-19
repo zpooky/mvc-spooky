@@ -28,7 +28,7 @@ EOD;
 EOD;
 	}
 	public function body(){
-		$content = nl2br($this->page['c_content']);
+		$content = html_entity_decode(nl2br($this->page['c_content']));
 
 		$subject = htmlentities($this->page['c_subject']);
 		return <<<EOD
