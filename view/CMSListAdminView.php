@@ -37,7 +37,9 @@ EOD;
 <tr><th>Subject</th><th style="width:100px;">By</th><th style="width:100px;">Manage</th></tr>
 EOD;
 		foreach($this->data as $row){
-			$returnHTML .= '<tr><td><a href="'.$viewURL.$row['c_id'].'">'.$row['c_subject'].'</a></td><td>'.$row['u_user'].'</td><td><a href="'.$updateURL.$row['c_id'].'">Edit</a></td></tr>';
+			$subject = htmlentities($row['c_subject']);
+			$subject = empty($subject) ? 'No title' : $subject;
+			$returnHTML .= '<tr><td><a href="'.$viewURL.$row['c_id'].'">'.$subject.'</a></td><td>'.$row['u_user'].'</td><td><a href="'.$updateURL.$row['c_id'].'">Edit</a></td></tr>';
 		}
 		$returnHTML .= '</table>';
 		return $returnHTML;

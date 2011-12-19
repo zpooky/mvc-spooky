@@ -12,6 +12,9 @@ class CMSView extends BaseView {
 <h1>Header</h1>	
 EOD;
 	}
+	public function head(){
+		return $this->page['c_meta'];
+	}
 	public function menu(){
 		return DefaultViewUtil::getMainMenu();
 	}
@@ -26,8 +29,10 @@ EOD;
 	}
 	public function body(){
 		$content = nl2br($this->page['c_content']);
+
+		$subject = htmlentities($this->page['c_subject']);
 		return <<<EOD
-		<h1>{$this->page['c_subject']}</h1>
+		<h1>{$subject}</h1>
 		<p>
 		{$content}
 		</p>

@@ -24,7 +24,7 @@ class Theme implements ThemeInterface {
 	<head>
 		<!-- Meta tags -->
 		<meta charset="utf-8">
-		<title>{$this->view->getTitle()}</title>
+		<title>{$this->getTitle()}</title>
 		<!-- JavaScript -->
 		{$this->getJs()}
 		<!-- CSS -->
@@ -59,6 +59,9 @@ class Theme implements ThemeInterface {
 	</body>
 </html>
 EOD;
+	}
+	public function getTitle(){
+		return htmlentities($this->view->getTitle());
 	}
 	public function getJs(){
 		$returnJsHtml = "";
@@ -146,7 +149,7 @@ EOD;
 		return <<<EOD
 		<div id="ms-body" class="span-{$this->getBodyWidth()}{$add}">
 			<div style="padding: 10px 10px 10px 10px;">
-			{$this->view->body()}
+			{$html}
 			</div>
 		</div>
 EOD;

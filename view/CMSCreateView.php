@@ -8,9 +8,13 @@ class CMSCreateView extends BaseView {
 	}
 	public function head(){
 		return <<<EOD
-<script type="text/javascript">
-	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-</script>		
+<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
+	//<![CDATA[
+	bkLib.onDomLoaded(function() {
+	new nicEditor().panelInstance('post');
+	});
+	//]]>
+</script>
 EOD;
 	}
 	public function header(){
@@ -34,6 +38,8 @@ EOD;
 		$formValidatorURL = $this->getURLRoot().'form/FormHandler.php?c=CMSFormHandler&f=create';
 		return <<<EOD
 <form method="post" action="{$formValidatorURL}">
+	<label for="meta">Meta: </label>
+	<textarea name="meta" id="meta" style="width: 100%; height: 15px;"></textarea>
 	<label for="title">HTML Title: </label>
 	<input type="text" name="title" id="title" style="width: 100%;" />
 	<label for="subject">Subject: </label>
