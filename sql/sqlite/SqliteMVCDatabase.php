@@ -4,15 +4,13 @@
 require_once ROOT.'sql/DatabaseInterface.php';
 require_once ROOT.'site/config/ConfigInstance.php';
 
-@define('SINGLEQUERY',0);
-@define('MULTIQUERY',1);
-
 class SqliteMVCDatabase implements DatabaseInterface {
 	private $sqlite = null;
 	private $query;
 	public 	$timer;
 	public 	$id;
 	public  $rows;
+	private $query_type;
 	public function __construct(){
 
 	}
@@ -29,31 +27,42 @@ class SqliteMVCDatabase implements DatabaseInterface {
 		$this->query = $query;
 	}
 	public function multiQuery($query){
-		throw new Exception('adsasd', 1);
+		$this->query = $query;
 	}
 	public function escape(&$out){
-		return mysql_real_escape_string($out);
+		return sqlite_escape_string($out);
 	}
 	public function dump(){
 		die(nl2br($this->query));
 	}
 	public function fetch(){
 		$startTimer = microtime();
-		$result = $this->sqlite->arrayQuery($this->query);
+		$result = $this->sqlite->arrayQuery($this->query, SQLITE_ASSOC);
 		if($result === false){
 			die(nl2br($this->query)."<br />".sqlite_error_string(sqlite_last_error($this->sqlite)));
 		}
 		$endTimer = microtime();
 		$this->timer = $endTimer-$startTimer;
-		return $result;
+		return self::fixThisShit($result);
 	}
 	public function execute(){
-		echo nl2br($this->query);
 		$this->sqlite->queryExec($this->query);
-		$this->id = $this->sqlite->key();//??
+		$this->id = $this->sqlite->lastInsertRowid();//??
 	}
 	public function getPrimaryKeyId(){
 		return $this->id;
+	}
+	private static function fixThisShit($result){
+		foreach($result as &$row){
+			foreach($row as $key => &$value){
+				if(stripos($key,'.') !== false){
+					$chunks = explode('.', $key);
+					$row[$chunks[1]] = $value;
+					unset($row[$key]);
+				}
+			}
+		}
+		return $result;
 	}
 }
 ?>

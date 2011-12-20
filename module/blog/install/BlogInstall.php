@@ -4,30 +4,30 @@ require_once ROOT.'module/InstallSQLInterface.php';
 
 class BlogInstall implements InstallSQLInterface {
 	public function dropMysql(){
-		return <<<EOD
+		/*return <<<EOD
 DROP TABLE IF EXISTS blog;
-EOD;
+EOD;*/
 	}
 	public function dropSqlite(){
-		return <<<EOD
+		/*return <<<EOD
 DROP TABLE IF EXISTS blog;
-EOD;
+EOD;*/
 	}
 	public function installMySQL(){
-		return <<<EOD
+		/*return <<<EOD
 CREATE TABLE blog (
 	b_subject VARCHAR(255) NOT NULL default 'no subject',
 	b_post TEXT NOT NULL
 );
-EOD;
+EOD;*/
 	}
 	public function installSqlite(){
-		return <<<EOD
+		/*return <<<EOD
 CREATE TABLE blog (
 	b_subject VARCHAR(255) NOT NULL default 'no subject',
 	b_post TEXT NOT NULL
 );
-EOD;
+EOD;*/
 	}
 }
 

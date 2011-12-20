@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" class="default">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8">
+		<title>Install</title>
+	</head>
+	<body>
 <?php
 @define('ROOT','../');
 require_once ROOT.'site/config/ConfigInstance.php';
@@ -43,3 +51,4 @@ if ($handle = opendir($rootDir)) {
 	echo 'Base installed.';
 }
 ?>
+</body>

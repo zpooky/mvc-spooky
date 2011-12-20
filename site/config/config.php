@@ -21,7 +21,7 @@ $ci->config['site']['url'] = 'http://localhost/mvc-spooky/';
 /**
  * DATABASE
  */
-$ci->config['db']['type'] = 'mysql';
+$ci->config['db']['type'] = 'sqlite';
 $ci->config['db']['host'] = '127.0.0.1';
 $ci->config['db']['port'] = '3306';
 $ci->config['db']['database'] = 'mvc';
