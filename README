@@ -1,4 +1,5 @@
 INSTALL
-1. change the urls for the nicEdit js files
+1. change the urls for the nicEdit js files(/js/nicEdit)
 2. change sitemap.xml url
 3. modify config
+4. htaccess change the url 
