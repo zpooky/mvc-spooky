@@ -8,7 +8,7 @@ class CMSCreateView extends BaseView {
 	}
 	public function head(){
 		return <<<EOD
-<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
+<script type="text/javascript">
 	//<![CDATA[
 	bkLib.onDomLoaded(function() {
 	new nicEditor().panelInstance('post');
