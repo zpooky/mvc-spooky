@@ -12,6 +12,7 @@ class DefaultViewUtil {
 	<ul style="padding-left: 0px;padding-top: 0px;margin-top:0px;">
 	<li style="display: block;">{$createCMSURL}</li>
 	<li style="display: block;">{$listCMSURL}</li>
+	</ul>
 	</p>
 </div>
 EOD;
