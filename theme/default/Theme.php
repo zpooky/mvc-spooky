@@ -43,9 +43,7 @@ class Theme implements ThemeInterface {
 			</div>
 			<!-- MENU -->
 			<div id="ms-menu-bar" class="span-24 last">
-				<ul id="ms-menu">
 				{$this->getMenu()}
-				</ul>
 			</div>
 			{$this->getPromoted()}
 			{$this->getContentContainer()}
@@ -95,13 +93,14 @@ EOD;
 	public function getMenu(){
 		require_once ROOT.'site/config/ConfigInstance.php';
 		$root = ConfigInstance::getInstance()->getURLRoot();
-		$returnMenuHtml = "";
+		$returnMenuHtml = '<ul id="ms-menu">';
 		try {
 			foreach($this->view->menu() as $menuItem){
 				$returnMenuHtml .= '<li><a href="'.$root.$menuItem['url'].'">'.$menuItem['text'].'</a></li>';
 			}
 		} catch(Exception $e){
 		}
+		$returnMenuHtml = '</ul>';
 		return $returnMenuHtml;
 	}
 	public function getPromoted(){
