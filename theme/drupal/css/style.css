@@ -1,0 +1,108 @@
+body {
+	background-color: #ffffff;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+}
+
+div #container {
+}
+
+#ms-header h1 {
+	padding-left: 20px;
+	padding-top: 20px;
+	color: #fff;
+}
+
+div #ms-header {
+	height: 100px;
+	background-color: #1e8acc;
+}
+
+div #ms-menu-bar {
+	background-color: #1e8acc;
+}
+#ms-menu-bar ul {
+ 	font-size: 0.929em;
+    margin: 0;
+    padding: 0 15px;
+    color: #68696B;
+}
+#ms-menu-bar li {
+	display: inline;
+}
+#ms-menu-bar ul a {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.7);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: rgb(197,227,245);
+    float: left;
+    height: 2.4em;
+    line-height: 2.4em;
+    padding: 0 0.8em;
+    text-decoration: none;
+    text-shadow: 0 1px #EEEEEE;
+}
+
+#ms-menu-bar a:link{
+	color: #ffffff;
+}
+#ms-menu-bar a:visited{
+	text-decoration: none;
+}
+#ms-menu-bar a:hover{
+	background-color: #fff;
+}
+#ms-menu-bar a#current{
+	color: #000;
+}
+
+div #ms-promoted {
+	background-color: #ffffff;
+}
+
+div #ms-sidebar-left {
+	background-color: #ffffff;
+	height: auto;
+	min-height:400px;
+}
+
+div #ms-body {
+	background-color: #ffffff;
+	height: auto;
+	min-height:400px;
+}
+
+div #ms-sidebar-right {
+	background-color: #ffffff;
+	height: auto;
+	min-height:400px;
+}
+
+div #ms-left-bottom {
+	background-color: #ffffff;
+}
+
+div #ms-middle-bottom {
+	background-color: #ffffff;
+}
+
+div #ms-right-bottom {
+	background-color: #ffffff;
+}
+
+div #ms-footer-column1 {
+	background-color: #ffffff;
+}
+div #ms-footer-column2 {
+	background-color: #ffffff;
+}
+div #ms-footer-column3 {
+	background-color: #ffffff;
+}
+div #ms-footer-column4 {
+	background-color: #ffffff;
+}
+
+div #ms-footer {
+		
+}

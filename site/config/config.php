@@ -31,5 +31,5 @@ $ci->config['db']['prefix'] = '';
 /*
  * THEME
  */
-$ci->config['theme']['theme'] = 'default';
+$ci->config['theme']['theme'] = 'drupal';
 ?>
