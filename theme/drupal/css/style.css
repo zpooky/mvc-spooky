@@ -39,8 +39,9 @@ div #ms-menu-bar {
     height: 2.4em;
     line-height: 2.4em;
     padding: 0 0.8em;
+    margin-right:5px;
     text-decoration: none;
-    text-shadow: 0 1px #EEEEEE;
+    text-shadow: 0 1px #eeeeee;
 }
 
 #ms-menu-bar a:link{
