@@ -42,7 +42,7 @@ div #ms-menu-bar {
     margin-right:5px;
     text-decoration: none;
     text-shadow: 0 1px #eeeeee;
-    color: #1e8acc;
+    color: #1e8acc !important;
 }
 
 #ms-menu-bar a:link{
