@@ -198,7 +198,7 @@ EOD;
 		if($this->view->bottomLeft){
 			return <<<EOD
 					<!-- LEFT BOTTOM -->
-					<div id="ms-left-bottom" class="span-7"{$add}>
+					<div id="ms-left-bottom" class="span-8"{$add}>
 						{$html}
 					</div>
 EOD;
