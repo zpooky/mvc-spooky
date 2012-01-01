@@ -179,7 +179,7 @@ EOD;
 		$left = $this->getBottomLeft((!$this->view->bottomMiddle && !$this->view->bottomRight));
 		$returnHtml = <<<EOD
 			<!-- BOTTOM CONTAINER -->
-			<div class="append-bottom">
+			<div class="append-bottom" style="margin-bottom: 10px;">
 				<div class="container">
 				{$left}
 				{$middle}
@@ -198,7 +198,7 @@ EOD;
 		if($this->view->bottomLeft){
 			return <<<EOD
 					<!-- LEFT BOTTOM -->
-					<div id="ms-left-bottom" class="span-8"{$add}>
+					<div id="ms-left-bottom" class="span-8 {$add}">
 						{$html}
 					</div>
 EOD;
@@ -211,7 +211,7 @@ EOD;
 		if($this->view->bottomMiddle){
 			return <<<EOD
 					<!-- MIDDLE BOTTOM -->
-					<div id="ms-middle-bottom" class="span-8"{$add}>
+					<div id="ms-middle-bottom" class="span-8 {$add}">
 						{$html}
 					</div>
 EOD;
@@ -237,7 +237,7 @@ EOD;
 		$footer1 = $this->getFooterColumn1((!$this->view->footerColumn4 || !$this->view->footerColumn3 || !$this->view->footerColumn2));
 		$returnHtml = <<<EOD
 			<!-- FOOTER CONTAINER-->
-			<div class="append-bottom">
+			<div class="append-bottom" style="margin-bottom: 10px;">
 				<footer class="container">
 				{$footer1}
 				{$footer2}
@@ -257,7 +257,7 @@ EOD;
 		if($this->view->footerColumn1){
 			return <<<EOD
 					<!-- FOOTER COLUMN 1 -->
-					<div id="ms-footer-column1" class="span-6"{$add}>
+					<div id="ms-footer-column1" class="span-6 {$add}">
 						{$html}
 					</div>
 EOD;
@@ -270,7 +270,7 @@ EOD;
 		if($this->view->footerColumn2){
 			return <<<EOD
 					<!-- FOOTER COLUMN 2 -->
-					<div id="ms-footer-column2" class="span-6"{$add}>
+					<div id="ms-footer-column2" class="span-6 {$add}">
 						{$html}
 					</div>
 EOD;
@@ -283,7 +283,7 @@ EOD;
 		if($this->view->footerColumn3){
 			return <<<EOD
 					<!-- FOOTER COLUMN 3 -->
-					<div id="ms-footer-column3" class="span-6"{$add}>
+					<div id="ms-footer-column3" class="span-6 {$add}">
 						{$html}
 					</div>
 EOD;
