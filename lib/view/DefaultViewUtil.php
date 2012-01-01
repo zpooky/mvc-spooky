@@ -21,7 +21,6 @@ EOD;
 	public static function getMainMenu(){
 		return array(
 			'home' => array('text'=>'Home', 'url'=>'home'),
-			'hoxme' => array('text'=>'Home', 'url'=>'home'),
 		);
 	}
 }
