@@ -111,7 +111,7 @@ EOD;
 			<!-- PROMOTED -->
 			<div id="ms-promoted" class="span-24 last">
 			{$html}
-			</div>	
+			</div>
 EOD;
 		}
 		return '';
@@ -179,7 +179,7 @@ EOD;
 		$left = $this->getBottomLeft((!$this->view->bottomMiddle && !$this->view->bottomRight));
 		$returnHtml = <<<EOD
 			<!-- BOTTOM CONTAINER -->
-			<div class="prepend-top append-bottom">
+			<div class="append-bottom">
 				<div class="container">
 				{$left}
 				{$middle}
@@ -237,7 +237,7 @@ EOD;
 		$footer1 = $this->getFooterColumn1((!$this->view->footerColumn4 || !$this->view->footerColumn3 || !$this->view->footerColumn2));
 		$returnHtml = <<<EOD
 			<!-- FOOTER CONTAINER-->
-			<div class="prepend-top">
+			<div class="append-bottom">
 				<footer class="container">
 				{$footer1}
 				{$footer2}
