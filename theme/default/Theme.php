@@ -43,7 +43,7 @@ class Theme implements ThemeInterface {
 			</div>
 			<!-- MENU -->
 			<div id="ms-menu-bar" class="span-24 last">
-			<ul id="ms-menu">
+			<ul id="ms-menu" style="margin-bottom: 10px;">
 				{$this->getMenu()}
 			</ul>
 			</div>
@@ -109,7 +109,7 @@ EOD;
 		if($this->view->promoted){
 			return <<<EOD
 			<!-- PROMOTED -->
-			<div id="ms-promoted" class="span-24 last">
+			<div id="ms-promoted" class="span-24 last" style="margin-bottom: 10px;">
 			{$html}
 			</div>
 EOD;
@@ -133,7 +133,7 @@ EOD;
 			$this->contentWidth += self::$MIN_SIDEBAR_WIDTH;
 			return <<<EOD
 			<!-- SIDEBAR LEFT -->
-			<div id="ms-sidebar-left" class="span-4">
+			<div id="ms-sidebar-left" class="span-4" style="margin-bottom: 10px;">
 			<div style="padding: 2px 2px 2px 2px;">
 			{$html}
 			</div>
@@ -147,7 +147,7 @@ EOD;
 		$html = $this->view->body();
 		$this->contentWidth += self::$MIN_BODY_WIDTH;
 		return <<<EOD
-		<div id="ms-body" class="span-{$this->getBodyWidth()}{$add}">
+		<div id="ms-body" class="span-{$this->getBodyWidth()}{$add}" style="margin-bottom: 10px;">
 			<div style="padding: 10px 10px 10px 10px;">
 			{$html}
 			</div>
