@@ -11,7 +11,7 @@ class LoginModel extends BaseModel {
 		WHERE u_user = '".$username."'");
 		$row = $db->fetch();
 		
-				/*$db->query("
+				$db->query("
 		SELECT *, (u_password = '36814d00b03a1082720656ea75e6be382b5aac12')AS o, (u_password = '36814d00b03a1082720656ea75e6be382b5aac12') AS s, (u_password = '".$password."') AS b
 		FROM user");
 		print_r($db->fetch());
@@ -27,7 +27,7 @@ class LoginModel extends BaseModel {
 		echo "equals".(utf8_decode($password) == utf8_decode('36814d00b03a1082720656ea75e6be382b5aac12') ? "true" : "false")."<br />";
 		echo "equals".(utf8_decode($password) == utf8_encode("36814d00b03a1082720656ea75e6be382b5aac12") ? "true" : "false")."<br />";
 		echo "rows: ".count($row)."<br />";
-		die;*/
+		echo "row  pw:".$row[0]['u_password']."<br />";
 		if(count($row) == 0 || $row[0]['u_password'] != $password){
 			die("login fail");
 			throw new Exception('Login fail.', 1);
