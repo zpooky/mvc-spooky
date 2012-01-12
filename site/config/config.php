@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
  * SQL
  */
@@ -6,7 +6,7 @@
  * sqlite
  * mysql
  */
-
+//
 @define('ROOT','../../');
 
 require_once ROOT.'site/config/ConfigInstance.php';

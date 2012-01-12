@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once 'BaseView.php';
 require_once ROOT.'lib/view/DefaultViewUtil.php';
-class CMSCreateView extends BaseView {
+class CMSCreateView extends BaseView {//
 	public function getJavaScript(){
 		return array('<script type="text/javascript" src="'.$this->getURLRoot().'js/nicEdit/nicEdit.js"></script>');
 	}

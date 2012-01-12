@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once 'BaseView.php';
 require_once ROOT.'lib/view/DefaultViewUtil.php';
@@ -7,7 +7,7 @@ class HomeView extends BaseView {
 	private $loggedIn;
 	public function setPoster($poster){
 		$this->poster = $poster;
-	}
+	}//
 	public function setLoggedIn($status){
 		$this->loggedIn = $status;
 	}

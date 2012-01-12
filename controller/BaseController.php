@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 
 require_once ROOT.'site/config/ConfigInstance.php';
@@ -44,7 +44,7 @@ abstract class BaseController {
 		return $this->db;
 	}
 	protected function getModule($moduleClass){//static
-		require_once ROOT.'module/'.strtolower($moduleClass).'/'.$moduleClass.'.php';
+		require_once ROOT.'module/'.strtolower($moduleClass).'/'.ucwords(strtolower($moduleClass)).'.php';
 		return new $moduleClass;
 	}
 	protected function getModel($modelClass){//static
@@ -89,5 +89,5 @@ abstract class BaseController {
 	}
 	protected function assemble(){
 		$this->view->assemble();
-	}
+	}//
 }

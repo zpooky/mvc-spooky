@@ -1,9 +1,9 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 
 require_once(ROOT.'site/config/ConfigInstance.php');
 
-abstract class ViewAssembler {
+abstract class ViewAssembler {//
 	
 	public $promoted = true;
 	public $mSidebarLeft = true;

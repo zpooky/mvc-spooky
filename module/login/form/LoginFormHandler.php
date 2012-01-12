@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 @define('ROOT','../../../');
 require_once ROOT.'lib/Util.php';
 require_once ROOT.'form/BaseFormHandler.php';
-
+//
 class LoginFormHandler extends BaseFormHandler {
 	public function login(){
 		$loginModel = $this->getModel('LoginModel','module/login/');

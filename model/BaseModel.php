@@ -1,5 +1,5 @@
-<?php
-abstract class BaseModel {
+﻿<?php
+abstract class BaseModel {//
 	protected $db;
 	public function setDatabase($db){
 		$this->db = $db;

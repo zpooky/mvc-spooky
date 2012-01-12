@@ -1,4 +1,6 @@
 MVC - Model View Controller
+All classes should be in Camel case form example BaseClass.
+All code should follow java syntax.
 
 	/controller
 The controller folder should contain every Controller class. 

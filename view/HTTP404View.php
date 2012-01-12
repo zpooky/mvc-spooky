@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once 'BaseView.php';
 require_once ROOT.'lib/view/DefaultViewUtil.php';
@@ -8,7 +8,7 @@ class HTTP404View extends BaseView {
 	public function setLoggedIn($status){
 		$this->loggedIn = $status;
 	}
-	
+	//
 	public function setMessage($message){
 		$this->message = $message;
 	}

@@ -1,5 +1,5 @@
-<?php
-class DefaultViewUtil {
+﻿<?php
+class DefaultViewUtil {//
 	public static function getCMSMenu($loggedIn = true,$root){
 		if(!$loggedIn){
 			return '';

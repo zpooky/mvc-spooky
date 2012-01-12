@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once(ROOT.'controller/BaseController.php');
 abstract class SecureBaseController extends BaseController {
@@ -19,6 +19,6 @@ abstract class SecureBaseController extends BaseController {
 		$this->get404('Access denied!');
 		$this->assemble();
 		exit();
-	}
+	}//
 }
 ?>

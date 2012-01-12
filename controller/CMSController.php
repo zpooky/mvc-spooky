@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once(ROOT.'controller/BaseController.php');
 
@@ -32,6 +32,6 @@ class CMSController extends BaseController {
 			throw new Exception('Page not defined.',2);
 		}
 		return (int)$get[0];
-	}
+	}//
 }
 ?>

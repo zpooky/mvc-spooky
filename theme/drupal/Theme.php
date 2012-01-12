@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 @define('ROOT','../../');
-
+//
 require_once(ROOT.'theme/ThemeInterface.php');
 require_once ROOT.'site/config/ConfigInstance.php';
 require_once ROOT.'lib/Util.php';

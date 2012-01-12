@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 @define('ROOT','../');
-
+//
 require_once ROOT.'site/config/ConfigInstance.php';
 abstract class BaseFormHandler {
 	private $db = null;
@@ -22,7 +22,7 @@ abstract class BaseFormHandler {
 		return ConfigInstance::getInstance()->getURLRoot();
 	}
 	protected function getModel($modelClass,$module = ''){
-		require_once ROOT.$module.'model/'.$modelClass.'.php';
+		require_once ROOT.$module.'model/'.ucwords($modelClass).'.php';
 		$model = new $modelClass;
 		$model->setDatabase($this->getDatabase());
 		return $model;

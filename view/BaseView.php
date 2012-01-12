@@ -1,9 +1,9 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once ROOT.'view/ViewAssembler.php';
 require_once ROOT.'site/config/ConfigInstance.php';
 
-abstract class BaseView extends ViewAssembler {
+abstract class BaseView extends ViewAssembler {//
 	protected $module = array();
 	public function addModule($module){
 		$this->module[] = $module;

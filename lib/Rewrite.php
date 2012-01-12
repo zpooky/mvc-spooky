@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 @define('ROOT','../');
-class Rewrite {
+class Rewrite {//
 	public static function getQuery($redirectURL){
 		require_once ROOT.'site/config/ConfigInstance.php';
 		$root = ConfigInstance::getInstance()->getRoot();

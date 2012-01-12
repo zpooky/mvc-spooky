@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once 'BaseView.php';
 require_once ROOT.'lib/view/DefaultViewUtil.php';
-class CMSUpdateView extends BaseView {
+class CMSUpdateView extends BaseView {//
 	private $page;
 	public function setPage($page){
 		$this->page = $page;

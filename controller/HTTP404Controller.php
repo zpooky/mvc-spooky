@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once(ROOT.'controller/BaseController.php');
 
@@ -20,5 +20,5 @@ class HTTP404Controller extends BaseController {
 		$view = $this->getView();
 		$view->setLoggedIn($loginModule->isLoggedIn());
 	}
-}
+}//
 ?>

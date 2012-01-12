@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once 'BaseView.php';
 require_once ROOT.'lib/view/DefaultViewUtil.php';
-class CMSListAdminView extends BaseView {
+class CMSListAdminView extends BaseView {//
 	private $data;
 	private $loggedIn;
 	private $message = '';

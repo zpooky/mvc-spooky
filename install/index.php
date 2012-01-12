@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="default">
 	<head>
 		<!-- Meta tags -->
@@ -7,7 +7,7 @@
 	</head>
 	<body>
 <?php
-@define('ROOT','../');
+@define('ROOT','../');//
 require_once ROOT.'site/config/ConfigInstance.php';
 $rootDir = ROOT.'module/';
 echo '<h1>Installing <i><b>'.ConfigInstance::getInstance()->getDatabaseType().'</b></i></h1>';
@@ -20,7 +20,7 @@ if ($handle = opendir($rootDir)) {
             if(is_dir($rootDir.$file)){
             	try{
             		$class = strtolower($file).'Install';
-	            	include_once $rootDir.$file.'/install/'.$class.'.php';
+	            	include_once $rootDir.$file.'/install/'.ucwords($class).'.php';
 	            	$install = new $class();
 	            	$installFunction = 'install'.ConfigInstance::getInstance()->getDatabaseType();
 	            	$dropFunction = 'drop'.ConfigInstance::getInstance()->getDatabaseType();

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once(ROOT.'controller/BaseController.php');
 
@@ -25,7 +25,7 @@ class CMSUpdateController extends BaseController {
 		} catch(Exception $e){
 			$this->get404($e->getMessage());
 		}
-	}
+	}//
 	public function getPage(){
 		$get = $this->getGET();
 		if(!isset($get[0]) || $get[0] == null || empty($get[0])){

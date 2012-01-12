@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once(ROOT.'controller/SecureBaseController.php');
 
@@ -19,6 +19,6 @@ class CMSCreateController extends SecureBaseController {
 		return 'CMSCreateView';
 	}
 	protected function index(){
-	}
+	}//
 }
 ?>

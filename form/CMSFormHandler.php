@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once ROOT.'form/BaseFormHandler.php';
 require_once ROOT.'lib/Util.php';
-class CMSFormHandler extends BaseFormHandler {
+class CMSFormHandler extends BaseFormHandler {//
 	public function create(){
 		$post = $this->getPOST();
 		$model = $this->getModel('CMSModel');

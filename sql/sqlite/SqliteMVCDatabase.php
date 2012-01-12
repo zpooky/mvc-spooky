@@ -1,10 +1,10 @@
-<?php
+﻿<?php
 @define('ROOT','../../');
 
 require_once ROOT.'sql/DatabaseInterface.php';
 require_once ROOT.'site/config/ConfigInstance.php';
 
-class SqliteMVCDatabase implements DatabaseInterface {
+class SqliteMVCDatabase implements DatabaseInterface {//
 	private $sqlite = null;
 	private $query;
 	public 	$timer;

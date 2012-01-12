@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 @define('ROOT','../../');
-
+//
 require_once ROOT.'sql/DatabaseInterface.php';
 require_once ROOT.'site/config/ConfigInstance.php';
 

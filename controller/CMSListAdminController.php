@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 @define('ROOT','../');
 require_once(ROOT.'controller/SecureBaseController.php');
 
@@ -17,7 +17,7 @@ class CMSListAdminController extends SecureBaseController {
 	}
 	protected function loadViewClass(){
 		return 'CMSListAdminView';
-	}
+	}//
 	protected function index(){
 		$cmsModel = $this->getModel('CMSModel');
 		$data = $cmsModel->listAll('DESC');
