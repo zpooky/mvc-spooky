@@ -29,6 +29,7 @@ class LoginModel extends BaseModel {
 		echo "rows: ".count($row)."<br />";
 		die;*/
 		if(count($row) == 0 || $row[0]['u_password'] != $password){
+			die("login fail");
 			throw new Exception('Login fail.', 1);
 		}
 		return $row[0]['u_id'];
