@@ -28,7 +28,7 @@ abstract class BaseFormHandler {
 		return $model;
 	}
 	protected function getModule($moduleClass){
-		require_once ROOT.'module/'.strtolower($moduleClass).'/'.$moduleClass.'.php';
+		require_once ROOT.'module/'.strtolower($moduleClass).'/'.ucwords($moduleClass).'.php';
 		return new $moduleClass;
 	}
 }
