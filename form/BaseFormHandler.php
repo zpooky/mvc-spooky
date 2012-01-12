@@ -1,6 +1,6 @@
 ﻿<?php
 @define('ROOT','../');
-//
+
 require_once ROOT.'site/config/ConfigInstance.php';
 abstract class BaseFormHandler {
 	private $db = null;

@@ -1,4 +1,5 @@
-﻿<?php session_start();
+﻿<?php
+session_start();
 @define('ROOT','../');
 /**
  * c: class
@@ -13,7 +14,7 @@ $url = !isset($_GET['u']) || $_GET['u'] == null ? ROOT.'form/' : ROOT.'module/'.
 $class = str_replace(array('/','\\'), '', $_GET['c']);
 $function = $_GET['f'];
 require_once $url.$class.'.php';
-//
+
 $formValidator = new $class;
 $formValidator->$function();
 ?>
