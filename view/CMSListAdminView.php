@@ -38,7 +38,7 @@ EOD;
 EOD;
 		foreach($this->data as $row){
 			//print_r($row);
-			$subject = htmlentities($row['c_subject']);
+			$subject = htmlentities(utf8_decode($row['c_subject']));
 			$subject = empty($subject) ? 'No title' : $subject;
 			$returnHTML .= '<tr><td>'.$row['c_id'].'</td><td><a href="'.$viewURL.$row['c_id'].'">'.$subject.'</a></td><td>'.$row['u_user'].'</td><td><a href="'.$updateURL.$row['c_id'].'">Edit</a></td></tr>';
 		}

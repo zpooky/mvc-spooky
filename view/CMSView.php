@@ -19,7 +19,7 @@ EOD;
 		return DefaultViewUtil::getMainMenu();
 	}
 	public function getTitle(){
-		return $this->page['c_title'];
+		return utf8_decode($this->page['c_title']);
 	}
 	public function sidebarLeft(){
 		$cmsMenu = DefaultViewUtil::getCMSMenu(true,$this->getURLRoot());
@@ -30,7 +30,7 @@ EOD;
 	public function body(){
 		$content = html_entity_decode(nl2br($this->page['c_content']));
 
-		$subject = htmlentities($this->page['c_subject']);
+		$subject = htmlentities(utf8_decode($this->page['c_subject']));
 		return <<<EOD
 		<h1>{$subject}</h1>
 		<p>

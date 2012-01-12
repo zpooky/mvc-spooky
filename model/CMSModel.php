@@ -43,8 +43,7 @@ class CMSModel extends BaseModel {
 		$db->query("
 		UPDATE cms
 		SET c_meta = '".$meta."',c_title = '".$title."',c_subject = '".$subject."',c_content = '".$content."'
-		WHERE c_id = ".$id."
-		LIMIT 1");
+		WHERE c_id = ".$id);
 		$db->execute();
 	}
 	public function listAll($order = 'ASC'){
