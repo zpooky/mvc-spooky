@@ -8,6 +8,7 @@ class LoginFormHandler extends BaseFormHandler {
 		$loginModel = $this->getModel('LoginModel','module/login/');
 		$post = $this->getPOST();
 		try{
+			echo "password: ". $post['password']."<br />";
 			$id = $loginModel->login($post['username'],sha1($post['password']));
 			$_SESSION['LOGGED_IN'] = true;
 			$_SESSION['U_ID'] = $id;

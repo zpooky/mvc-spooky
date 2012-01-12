@@ -17,7 +17,7 @@ class LoginModel extends BaseModel {
 		print_r($db->fetch());
 		echo 'username: '.$username."<br />";
 		echo 'password: '.$password."<br />";
-		echo 'password: '.sha1($password)." == '36814d00b03a1082720656ea75e6be382b5aac12'<br />";
+		echo 'password: '.$password." == '36814d00b03a1082720656ea75e6be382b5aac12'<br />";
 		echo "equals".($password == '36814d00b03a1082720656ea75e6be382b5aac12' ? "true" : "false")."<br />";
 		echo "equals".($password == "36814d00b03a1082720656ea75e6be382b5aac12" ? "true" : "false")."<br />";
 		echo "equals".($password == utf8_decode('36814d00b03a1082720656ea75e6be382b5aac12') ? "true" : "false")."<br />";
