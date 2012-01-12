@@ -12,7 +12,7 @@ class LoginModel extends BaseModel {
 				u_password = '".$password."'");
 		$row = $db->fetch();
 				$db->query("
-		SELECT *, (u_password = '36814d00b03a1082720656ea75e6be382b5aac12')AS o, (u_password = '36814d00b03a1082720656ea75e6be382b5aac12') AS s
+		SELECT *, (u_password = '36814d00b03a1082720656ea75e6be382b5aac12')AS o, (u_password = '36814d00b03a1082720656ea75e6be382b5aac12') AS s, (u_password = '".$password."') AS b
 		FROM user");
 		print_r($db->fetch());
 		echo 'username: '.$username."<br />";
