@@ -1,4 +1,4 @@
-﻿DROP TABLE  IF EXISTS user;
+DROP TABLE  IF EXISTS user;
 CREATE TABLE user (
 	u_id INTEGER PRIMARY KEY,
 	u_user CHAR(100) NOT NULL UNIQUE,
@@ -19,4 +19,5 @@ CREATE TABLE cms (
 -- 'u_user' is username 'u_password' is password
 -- the password should be sha1 encrypted
 -- the default password is 'admin'
+--
 INSERT INTO user (u_user,u_password) VALUES('admin','d033e22ae348aeb5660fc2140aec35850c4da997');

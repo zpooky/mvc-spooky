@@ -1,4 +1,4 @@
-﻿DROP DATABASE IF EXISTS mvc;
+DROP DATABASE IF EXISTS mvc;
 CREATE DATABASE mvc;
 
 USE mvc;
@@ -21,5 +21,6 @@ CREATE TABLE cms (
 	c_u_id INT NOT NULL,
 	CONSTRAINT FOREIGN KEY (c_u_id) REFERENCES user(u_id)
 );
+--
 -- 'u_user' is username 'u_password' is password.
 INSERT INTO user (u_user,u_password) VALUES('admin',SHA1('admin'));
