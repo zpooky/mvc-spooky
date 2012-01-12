@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 interface ModuleInterface {//
 	public function getJavascript();
 	public function getCSS();

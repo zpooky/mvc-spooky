@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 interface InstallSQLInterface {//
 	public function dropMysql();
 	public function dropSqlite();
