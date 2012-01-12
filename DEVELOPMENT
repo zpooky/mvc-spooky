@@ -1,0 +1,57 @@
+MVC - Model View Controller
+
+	/controller
+The controller folder should contain every Controller class. 
+Controller classes should handel the collection of all data, verifcation and so on.
+The controller should send the collected data to the view class.
+A controller class must contain a reference to a View class.
+A controller class must extend from BaseController.
+A controller class must end in Controller.
+A controller class must have the same name as the filename example: class: CMSController file: CMSController.php
+A controller class must override Abstract functions in BaseController.
+functions:
+String getRedirectBase(); and String getRedirectPage();
+Redirect base is the first Argument afther Hostname example: 'www.localhost.se/cms'
+Redirect page is the second Argument afther Hostname example: 'www.localhost.se/cms/home'
+The redirect base can either be a array containing strings or a string example array('','home');
+Redirect Base and Redirect page must be unuique together: UNIQUE(RedirectBase,RedirectPage)
+If a URL arguments is required both redirect base and redirect page must be defined by overriding getRedirectBase and getRedirectPage.
+boolean loadDatabase();
+it the database connectors should be loaded. Will be used in Model classes.
+
+	/form
+The form folder should contain all form validation classes.
+A form validator class name should end in FormHandler.
+A from validator class should extend from BaseFormHandler.
+A FormHandler class must have the same name as the filename example: class: CMSFormHandler file: CMSFormHandler.php
+
+	/lib
+The lib folder should contain all Util classes.
+	/model
+	
+The model folder should contain all Model classes.
+A Model class should extend from BaseModel
+The model class should only contain database operation example: insert, update, delete;
+A model class must have the same name as the filename example: class: CMSModel file: CMSModel.php
+
+	/module
+The module folder contains all plugins.
+The module name is the folder name.
+the module should have a class named %Plugin_name% in the module root implementing the ModuleInterface.
+The plugin folder should contain the install/%Plugin_name%Install class implementing the InstallSQLInterface interface.
+
+	/theme
+The theme folder contains all the themes.
+The theme name is the folder name.
+The theme should have a class name 'Theme' in the theme root and should implement the ThemeInterface.
+The selected theme is defined in /site/config/config.php variable $ci->config['theme']['theme'] = ''; and shoul be the theme folder name.
+
+	/view
+A view class should contain the page specific HTML code in overrided functions.
+A view class should have set/get functions to get data from the controller class.
+The View folder should contain all the View classes.
+A view class should extend BaseView.
+A view class should end in View.
+A View class must have the same name as the filename example: class: CMSView file: CMSView.php
+A view class must override the pure virtual functions
+A view class overrides desired function to enable them when the html is set togheter.
