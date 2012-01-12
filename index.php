@@ -9,5 +9,5 @@ if(!isset($_GET['p'])){
 $rewrite = new Rewrite();
 $query = Rewrite::getQuery($_SERVER['REDIRECT_URL']);
 $rewrite->controll($query);
-//display 404
+//display 404s
 ?>
