@@ -1,4 +1,5 @@
-<?php session_start();
+<?php
+session_start();
 @define('ROOT','');
 require_once ROOT.'lib/Rewrite.php';
 
