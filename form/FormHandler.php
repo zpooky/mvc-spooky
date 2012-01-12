@@ -15,6 +15,7 @@ $class = str_replace(array('/','\\'), '', $_GET['c']);
 $function = $_GET['f'];
 require_once $url.$class.'.php';
 
+
 $formValidator = new $class;
 $formValidator->$function();
 ?>
