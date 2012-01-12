@@ -9,8 +9,7 @@ class LoginModel extends BaseModel {
 		SELECT u_id
 		FROM user
 		WHERE 	u_user = '".$username."' AND
-				u_password = '".$password."'
-		LIMIT 1");
+				u_password = '".$password."'");
 		$row = $db->fetch();
 		if(count($row) == 0){
 			throw new Exception('Login fail.', 1);
