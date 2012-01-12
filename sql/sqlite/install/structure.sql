@@ -17,4 +17,4 @@ CREATE TABLE cms (
 -- the password should be sha1 encrypted
 -- the default password is 'admin'
 --
-INSERT INTO user (u_user,u_password) VALUES('admin','d033e22ae348aeb5660fc2140aec35850c4da997');
+INSERT INTO user (u_user,u_password) VALUES('admin','36814d00b03a1082720656ea75e6be382b5aac12');
