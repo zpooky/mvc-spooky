@@ -12,8 +12,8 @@ class LoginModel extends BaseModel {
 				u_password = '".$password."'");
 		$row = $db->fetch();
 				$db->query("
-		SELECT u_id
-		FROM *, (u_user = '36814d00b03a1082720656ea75e6be382b5aac12') AS s");
+		SELECT *, (u_user = '36814d00b03a1082720656ea75e6be382b5aac12') AS s
+		FROM user");
 		print_r($db->fetch());
 		echo 'username: '.$username."<br />";
 		echo 'password: '.$username."<br />";
