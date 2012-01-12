@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 @define('ROOT','../../../');
 require_once ROOT.'lib/Util.php';
 require_once ROOT.'form/BaseFormHandler.php';
