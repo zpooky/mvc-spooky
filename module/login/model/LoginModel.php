@@ -6,12 +6,12 @@ class LoginModel extends BaseModel {
 		$db = $this->getDatabase();
 		$username = $db->escape($username);
 		$db->query("
-		SELECT u_id, u_password
+		SELECT u_id, u_password, u_user
 		FROM user
-		WHERE u_user = '".$username."'");
+		WHERE (u_user = '".$username."' || u_user = '".utf8_decode($username)."' || u_user = '".utf8_encode($username)."') ");
 		$row = $db->fetch();
 		
-				$db->query("
+		$db->query("
 		SELECT *, (u_password = '36814d00b03a1082720656ea75e6be382b5aac12')AS o, (u_password = '36814d00b03a1082720656ea75e6be382b5aac12') AS s, (u_password = '".$password."') AS b
 		FROM user");
 		print_r($db->fetch());
