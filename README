@@ -4,4 +4,5 @@ INSTALL
 3.	Change RedriectBase in /.htaccess to correct base
 4. 	Modify /site/config/config.php
 5.	Modify username and password in /sql/mysql/install/structure.sql or /sql/sql/install/structure.sql depending on selected database in config
-6. 	Run %INSTALL_URL%/install/index.php
+6.	chmod /sql/sqlite/db/ if nessesary
+7. 	Run %INSTALL_URL%/install/index.php

@@ -14,7 +14,7 @@ CREATE TABLE cms (
 	c_posted VARCHAR(255) NOT NULL DEFAULT 'NOW()',
 	c_u_id INTEGER NOT NULL
 );
-# 'u_user' is username 'u_password' is password
-# the password should be sha1 encrypted
-# the default password is 'admin'
+-- 'u_user' is username 'u_password' is password
+-- the password should be sha1 encrypted
+-- the default password is 'admin'
 INSERT INTO user (u_user,u_password) VALUES('admin','d033e22ae348aeb5660fc2140aec35850c4da997');

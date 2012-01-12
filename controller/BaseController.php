@@ -44,7 +44,7 @@ abstract class BaseController {
 		return $this->db;
 	}
 	protected function getModule($moduleClass){//static
-		require_once ROOT.'module/'.strtolower($moduleClass).'/'.ucwords(strtolower($moduleClass)).'.php';
+		require_once ROOT.'module/'.strtolower($moduleClass).'/'.ucwords($moduleClass).'.php';
 		return new $moduleClass;
 	}
 	protected function getModel($modelClass){//static
