@@ -22,6 +22,10 @@ class LoginModel extends BaseModel {
 		echo "equals".($username == "36814d00b03a1082720656ea75e6be382b5aac12" ? "true" : "false")."<br />";
 		echo "equals".($username == utf8_decode('36814d00b03a1082720656ea75e6be382b5aac12') ? "true" : "false")."<br />";
 		echo "equals".($username == utf8_encode("36814d00b03a1082720656ea75e6be382b5aac12") ? "true" : "false")."<br />";
+		echo "equals".(utf8_decode($username) == utf8_decode('36814d00b03a1082720656ea75e6be382b5aac12') ? "true" : "false")."<br />";
+		echo "equals".(utf8_encode($username) == utf8_encode("36814d00b03a1082720656ea75e6be382b5aac12") ? "true" : "false")."<br />";
+		echo "equals".(utf8_decode($username) == utf8_decode('36814d00b03a1082720656ea75e6be382b5aac12') ? "true" : "false")."<br />";
+		echo "equals".(utf8_decode($username) == utf8_encode("36814d00b03a1082720656ea75e6be382b5aac12") ? "true" : "false")."<br />";
 		echo "rows: ".count($row)."<br />";
 		die;
 		if(count($row) == 0){
