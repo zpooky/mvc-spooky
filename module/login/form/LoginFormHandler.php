@@ -23,5 +23,4 @@ class LoginFormHandler extends BaseFormHandler {
 		Util::redirect($this->getURLRoot().'home');
 	}
 }
-
 ?>

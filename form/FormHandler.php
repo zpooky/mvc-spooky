@@ -17,4 +17,5 @@ require_once $url.$class.'.php';
 
 $formValidator = new $class;
 $formValidator->$function();
+
 ?>
