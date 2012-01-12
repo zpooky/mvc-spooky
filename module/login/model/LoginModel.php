@@ -16,16 +16,16 @@ class LoginModel extends BaseModel {
 		FROM user");
 		print_r($db->fetch());
 		echo 'username: '.$username."<br />";
-		echo 'password: '.$username."<br />";
-		echo 'password: '.sha1($username)." == '36814d00b03a1082720656ea75e6be382b5aac12'<br />";
-		echo "equals".($username == '36814d00b03a1082720656ea75e6be382b5aac12' ? "true" : "false")."<br />";
-		echo "equals".($username == "36814d00b03a1082720656ea75e6be382b5aac12" ? "true" : "false")."<br />";
-		echo "equals".($username == utf8_decode('36814d00b03a1082720656ea75e6be382b5aac12') ? "true" : "false")."<br />";
-		echo "equals".($username == utf8_encode("36814d00b03a1082720656ea75e6be382b5aac12") ? "true" : "false")."<br />";
-		echo "equals".(utf8_decode($username) == utf8_decode('36814d00b03a1082720656ea75e6be382b5aac12') ? "true" : "false")."<br />";
-		echo "equals".(utf8_encode($username) == utf8_encode("36814d00b03a1082720656ea75e6be382b5aac12") ? "true" : "false")."<br />";
-		echo "equals".(utf8_decode($username) == utf8_decode('36814d00b03a1082720656ea75e6be382b5aac12') ? "true" : "false")."<br />";
-		echo "equals".(utf8_decode($username) == utf8_encode("36814d00b03a1082720656ea75e6be382b5aac12") ? "true" : "false")."<br />";
+		echo 'password: '.$password."<br />";
+		echo 'password: '.sha1($password)." == '36814d00b03a1082720656ea75e6be382b5aac12'<br />";
+		echo "equals".($password == '36814d00b03a1082720656ea75e6be382b5aac12' ? "true" : "false")."<br />";
+		echo "equals".($password == "36814d00b03a1082720656ea75e6be382b5aac12" ? "true" : "false")."<br />";
+		echo "equals".($password == utf8_decode('36814d00b03a1082720656ea75e6be382b5aac12') ? "true" : "false")."<br />";
+		echo "equals".($password == utf8_encode("36814d00b03a1082720656ea75e6be382b5aac12") ? "true" : "false")."<br />";
+		echo "equals".(utf8_decode($password) == utf8_decode('36814d00b03a1082720656ea75e6be382b5aac12') ? "true" : "false")."<br />";
+		echo "equals".(utf8_encode($password) == utf8_encode("36814d00b03a1082720656ea75e6be382b5aac12") ? "true" : "false")."<br />";
+		echo "equals".(utf8_decode($password) == utf8_decode('36814d00b03a1082720656ea75e6be382b5aac12') ? "true" : "false")."<br />";
+		echo "equals".(utf8_decode($password) == utf8_encode("36814d00b03a1082720656ea75e6be382b5aac12") ? "true" : "false")."<br />";
 		echo "rows: ".count($row)."<br />";
 		die;
 		if(count($row) == 0){
