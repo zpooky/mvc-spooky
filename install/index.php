@@ -52,3 +52,4 @@ if ($handle = opendir($rootDir)) {
 }
 ?>
 </body>
+</html>
