@@ -1,4 +1,7 @@
 INSTALL
-1. change the urls for the nicEdit js files(/js/nicEdit)
-2. change sitemap.xml url
-3. modify config
+1. 	Change the URL for the nicEdit js file(/js/nicEdit/nicEdit.js) on line 32 to the correct URL.
+2. 	Change /sitemap.xml url
+3.	Change RedriectBase in /.htaccess to correct base
+4. 	Modify /site/config/config.php
+5.	Modify username and password in /sql/mysql/install/structure.sql or /sql/sql/install/structure.sql depending on selected database in config
+6. 	Run %INSTALL_URL%/install/index.php
