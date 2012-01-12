@@ -1,7 +1,7 @@
 ﻿<?php
 @define('ROOT','../../');
 require_once ROOT.'site/config/ConfigInstance.php';
-class Login {//
+class Login {
 	public function getLoginForm($redirectTo){
 		$url = ConfigInstance::getInstance()->getURLRoot();
 		if($this->isLoggedIn()){
