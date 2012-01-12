@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 @define('ROOT','../');
 class Rewrite {//
 	public static function getQuery($redirectURL){
